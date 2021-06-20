@@ -4,7 +4,7 @@ namespace _Scripts
     {
         protected T _owner;
 
-        public void SetOwner(T owner)
+        public State(T owner)
         {
             _owner = owner;
         }

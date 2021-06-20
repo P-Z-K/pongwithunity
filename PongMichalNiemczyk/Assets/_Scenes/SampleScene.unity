@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1428456962}
   - component: {fileID: 1428456961}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1428456960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40bb0e7018954fe45a9d72f230f58611, type: 3}
+  m_Script: {fileID: 11500000, guid: 671e27b750284f8a981871ac3c8f6c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1428456962
