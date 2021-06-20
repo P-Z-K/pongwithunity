@@ -7,8 +7,6 @@ namespace _Scripts
         private State<T> _currentState;
         private T _owner;
 
-        public event Action<string, string> OnChangeState;
-
         public StateMachine(T owner)
         {
             _owner = owner;
@@ -23,7 +21,6 @@ namespace _Scripts
             if (_currentState != null)
             {
                 _currentState.ExitState();
-                OnChangeState?.Invoke(_currentState.GetType().Name, newState.GetType().Name);
             }
             
             _currentState = newState;
