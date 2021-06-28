@@ -6,6 +6,13 @@ namespace _Scripts
     public class Root : IInitializable, ITickable, IFixedTickable
     {
         private State<Root> _currentState;
+
+        private DiContainer TEST_diContainer;
+
+        public Root(DiContainer diContainer)
+        {
+            TEST_diContainer = diContainer;
+        }
         
         public void Initialize()
         {
@@ -25,7 +32,7 @@ namespace _Scripts
         public void ChangeStateTo<T>() where T : State<Root>
         {
             _currentState?.ExitState();
-            _currentState = (T) Activator.CreateInstance(typeof(T), new object[] {this});
+            _currentState = TEST_diContainer.Instantiate<T>();
             _currentState?.EnterState();
         }
     }
