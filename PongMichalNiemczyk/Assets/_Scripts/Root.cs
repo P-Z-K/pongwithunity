@@ -1,23 +1,23 @@
 using System;
-using UnityEngine;
+using Zenject;
 
 namespace _Scripts
 {
-    public class Root : MonoBehaviour
+    public class Root : IInitializable, ITickable, IFixedTickable
     {
         private State<Root> _currentState;
-
-        private void Awake()
+        
+        public void Initialize()
         {
             ChangeStateTo<StartState>();
         }
 
-        private void Update()
+        public void Tick()
         {
             _currentState?.UpdateState();
         }
 
-        private void FixedUpdate()
+        public void FixedTick()
         {
             _currentState?.UpdatePhysicsState();
         }
