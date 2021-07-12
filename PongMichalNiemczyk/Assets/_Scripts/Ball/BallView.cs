@@ -6,6 +6,8 @@ namespace _Scripts.Ball
 {
     public class BallView : MonoBehaviour
     {
+        [SerializeField] private Rigidbody2D _rigidbody2D;
+        
         private BallStateManager _ballStateManager;
         private BallSettings _ballSettings;
         
@@ -16,6 +18,10 @@ namespace _Scripts.Ball
             _ballSettings = ballSettings;
         }
 
+        public Rigidbody2D Rigidbody2D
+        {
+            get => _rigidbody2D;
+        }
         public Vector3 Position
         {
             get => transform.position;
