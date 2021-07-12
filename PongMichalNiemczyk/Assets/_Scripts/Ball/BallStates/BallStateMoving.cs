@@ -5,9 +5,12 @@ namespace _Scripts.Ball
     public class BallStateMoving : BallState
     {
         private BallView _ballView;
-        public BallStateMoving(BallStateManager owner, BallView ballView) : base(owner)
+        private BallSettings _ballSettings;
+        public BallStateMoving(BallStateManager owner, BallView ballView, BallSettings ballSettings) 
+            : base(owner)
         {
             _ballView = ballView;
+            _ballSettings = ballSettings;
         }
 
         public override void EnterState()

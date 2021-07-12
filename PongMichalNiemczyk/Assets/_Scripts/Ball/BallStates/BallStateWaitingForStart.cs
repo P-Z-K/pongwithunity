@@ -5,9 +5,13 @@ namespace _Scripts.Ball
     public class BallStateWaitingForStart : BallState
     {
         private BallView _ballView;
-        public BallStateWaitingForStart(BallStateManager owner, BallView ballView) : base(owner)
+        private BallSettings _ballSettings;
+        public BallStateWaitingForStart(BallStateManager owner, BallView ballView, 
+            BallSettings ballSettings) 
+            : base(owner)
         {
             _ballView = ballView;
+            _ballSettings = ballSettings;
         }
 
         public override void EnterState()
