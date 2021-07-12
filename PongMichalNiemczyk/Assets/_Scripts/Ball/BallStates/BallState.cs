@@ -5,7 +5,8 @@ namespace _Scripts.Ball
 {
     public abstract class BallState : State<BallStateManager>
     {
-        protected BallState(BallStateManager owner) : base(owner)
+        protected BallState(BallStateManager owner) 
+            : base(owner)
         {
         }
 

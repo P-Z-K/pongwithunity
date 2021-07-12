@@ -6,8 +6,9 @@ namespace _Scripts.Ball
     {
         private BallView _ballView;
         private BallSettings _ballSettings;
-        public BallStateWaitingForStart(BallStateManager owner, BallView ballView, 
-            BallSettings ballSettings) 
+
+        public BallStateWaitingForStart(BallStateManager owner, BallView ballView,
+            BallSettings ballSettings)
             : base(owner)
         {
             _ballView = ballView;
@@ -21,17 +22,14 @@ namespace _Scripts.Ball
 
         public override void UpdateState()
         {
-            
         }
 
         public override void UpdatePhysicsState()
         {
-            
         }
 
         public override void ExitState()
         {
-            
         }
 
         public override void OnTriggerEnter2D(Collider2D other)

@@ -4,7 +4,8 @@ namespace _Scripts.Root
 {
     public class GameOverState : State<Root>
     {
-        public GameOverState(Root owner) : base(owner)
+        public GameOverState(Root owner) 
+            : base(owner)
         {
         }
 

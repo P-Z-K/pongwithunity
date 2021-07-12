@@ -6,7 +6,9 @@ namespace _Scripts.Root
     public class GameplayState : State<Root>
     {
         private readonly BallStateManager _ballStateManager;
-        public GameplayState(Root owner, BallStateManager ballStateManager) : base(owner)
+
+        public GameplayState(Root owner, BallStateManager ballStateManager) 
+            : base(owner)
         {
             _ballStateManager = ballStateManager;
         }

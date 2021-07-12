@@ -4,7 +4,8 @@ namespace _Scripts.Root
 {
     public class StartState : State<Root>
     {
-        public StartState(Root owner) : base(owner)
+        public StartState(Root owner) 
+            : base(owner)
         {
         }
 
