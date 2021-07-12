@@ -1,4 +1,3 @@
-using _Scripts.Ball.BallStates;
 using Zenject;
 
 namespace _Scripts.Ball

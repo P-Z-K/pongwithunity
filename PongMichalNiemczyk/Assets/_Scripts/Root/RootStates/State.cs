@@ -1,4 +1,4 @@
-namespace _Scripts
+namespace _Scripts.Root
 {
     public abstract class State<T>
     {

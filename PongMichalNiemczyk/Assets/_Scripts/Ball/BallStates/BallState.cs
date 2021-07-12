@@ -1,6 +1,7 @@
+using _Scripts.Root;
 using UnityEngine;
 
-namespace _Scripts.Ball.BallStates
+namespace _Scripts.Ball
 {
     public abstract class BallState : State<BallStateManager>
     {

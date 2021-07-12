@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Scripts.Ball.BallStates
+namespace _Scripts.Ball
 {
     public class BallStateMoving : BallState
     {

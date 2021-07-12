@@ -1,7 +1,7 @@
 using System;
 using Zenject;
 
-namespace _Scripts
+namespace _Scripts.Root
 {
     public class Root : IInitializable, ITickable, IFixedTickable
     {
