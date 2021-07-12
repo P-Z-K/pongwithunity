@@ -4,28 +4,30 @@ namespace _Scripts.Ball
 {
     public class BallStateWaitingForStart : BallState
     {
-        public BallStateWaitingForStart(BallStateManager owner) : base(owner)
+        private BallView _ballView;
+        public BallStateWaitingForStart(BallStateManager owner, BallView ballView) : base(owner)
         {
+            _ballView = ballView;
         }
 
         public override void EnterState()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Ball is waiting...");
         }
 
         public override void UpdateState()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void UpdatePhysicsState()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void ExitState()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void OnTriggerEnter2D(Collider2D other)
