@@ -19,9 +19,14 @@ namespace _Scripts.Ball
             ResetRotation();
         }
 
-        public void LaunchBall()
+        public void StartMove()
         { 
             _ballView.Rigidbody2D.velocity = GetRandomDirection().normalized * _ballSettings._speed;
+        }
+
+        public void StopMove()
+        {
+            _ballView.Rigidbody2D.velocity = Vector2.zero;
         }
 
         private Vector2 GetRandomDirection()

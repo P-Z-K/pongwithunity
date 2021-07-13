@@ -6,17 +6,21 @@ namespace _Scripts.Ball
     {
         private readonly BallView _ballView;
         private readonly BallSettings _ballSettings;
+        private readonly BallMovement _ballMovement;
 
-        public BallStateInPlayerHole(BallStateManager owner, BallView ballView, BallSettings ballSettings)
+        public BallStateInPlayerHole(BallStateManager owner, BallView ballView, 
+            BallSettings ballSettings, BallMovement ballMovement)
             : base(owner)
         {
             _ballView = ballView;
             _ballSettings = ballSettings;
+            _ballMovement = ballMovement;
         }
 
         public override void EnterState()
         {
-            Debug.Log("Ball is in player hole...");
+            Debug.Log("[BALL STATE] Ball is in player hole...");
+            _ballMovement.StopMove();
         }
 
         public override void UpdateState()

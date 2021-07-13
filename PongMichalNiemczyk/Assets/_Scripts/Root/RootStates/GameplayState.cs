@@ -40,9 +40,17 @@ namespace _Scripts.Root
                 TEST_LoadGameOverState();
             }
 
-            if (Input.GetButtonDown("Fire1") && !(_ballStateManager.CurrentState is BallStateMoving))
+            if (Input.GetButtonDown("Fire1"))
             {
-                TEST_LaunchBall();
+                if (_ballStateManager.CurrentState is BallStateWaitingForStart)
+                {
+                    TEST_LaunchBall();
+                }
+                else if (_ballStateManager.CurrentState is BallStateInPlayerHole)
+                {
+                    TEST_RestartBall();
+                }
+                
             }
         }
 
@@ -54,6 +62,11 @@ namespace _Scripts.Root
         private void TEST_LaunchBall()
         {
             _ballStateManager.ChangeStateTo<BallStateMoving>();
+        }
+
+        private void TEST_RestartBall()
+        {
+            _ballStateManager.ChangeStateTo<BallStateWaitingForStart>();
         }
     }
 }

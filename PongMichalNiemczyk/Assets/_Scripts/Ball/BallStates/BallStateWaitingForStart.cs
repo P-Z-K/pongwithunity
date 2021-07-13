@@ -19,7 +19,7 @@ namespace _Scripts.Ball
 
         public override void EnterState()
         {
-            Debug.Log("Ball is waiting...");
+            Debug.Log("[BALL STATE] Ball is waiting...");
             _ballMovement.SpawnBallAtCenter();
         }
 
