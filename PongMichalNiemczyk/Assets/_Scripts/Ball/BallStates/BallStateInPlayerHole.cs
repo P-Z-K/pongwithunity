@@ -4,8 +4,8 @@ namespace _Scripts.Ball
 {
     public class BallStateInPlayerHole : BallState
     {
-        private BallView _ballView;
-        private BallSettings _ballSettings;
+        private readonly BallView _ballView;
+        private readonly BallSettings _ballSettings;
 
         public BallStateInPlayerHole(BallStateManager owner, BallView ballView, BallSettings ballSettings)
             : base(owner)

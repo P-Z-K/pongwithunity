@@ -6,7 +6,7 @@ namespace _Scripts.Root
     public class Root : IInitializable, ITickable, IFixedTickable
     {
         private State<Root> _currentState;
-        private DiContainer _diContainer;
+        private readonly DiContainer _diContainer;
 
         public Root(DiContainer diContainer)
         {

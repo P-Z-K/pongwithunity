@@ -4,9 +4,9 @@ namespace _Scripts.Ball
 {
     public class BallStateMoving : BallState
     {
-        private BallView _ballView;
-        private BallSettings _ballSettings;
-        private BallMovement _ballMovement;
+        private readonly BallView _ballView;
+        private readonly BallSettings _ballSettings;
+        private readonly BallMovement _ballMovement;
 
         public BallStateMoving(BallStateManager owner, BallView ballView, 
             BallSettings ballSettings, BallMovement ballMovement)
