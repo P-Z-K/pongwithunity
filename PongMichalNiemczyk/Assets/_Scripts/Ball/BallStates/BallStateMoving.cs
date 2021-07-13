@@ -6,17 +6,21 @@ namespace _Scripts.Ball
     {
         private BallView _ballView;
         private BallSettings _ballSettings;
+        private BallMovement _ballMovement;
 
-        public BallStateMoving(BallStateManager owner, BallView ballView, BallSettings ballSettings)
+        public BallStateMoving(BallStateManager owner, BallView ballView, 
+            BallSettings ballSettings, BallMovement ballMovement)
             : base(owner)
         {
             _ballView = ballView;
             _ballSettings = ballSettings;
+            _ballMovement = ballMovement;
         }
 
         public override void EnterState()
         {
             Debug.Log("Ball starts moving...");
+            _ballMovement.LaunchBall();
         }
 
         public override void UpdateState()
@@ -25,6 +29,7 @@ namespace _Scripts.Ball
 
         public override void UpdatePhysicsState()
         {
+            
         }
 
         public override void ExitState()
@@ -38,7 +43,7 @@ namespace _Scripts.Ball
 
         public override void OnCollisionEnter2D(Collision2D other)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

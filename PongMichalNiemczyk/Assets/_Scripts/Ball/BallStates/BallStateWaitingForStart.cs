@@ -6,18 +6,21 @@ namespace _Scripts.Ball
     {
         private BallView _ballView;
         private BallSettings _ballSettings;
+        private BallMovement _ballMovement;
 
         public BallStateWaitingForStart(BallStateManager owner, BallView ballView,
-            BallSettings ballSettings)
+            BallSettings ballSettings, BallMovement ballMovement)
             : base(owner)
         {
             _ballView = ballView;
             _ballSettings = ballSettings;
+            _ballMovement = ballMovement;
         }
 
         public override void EnterState()
         {
             Debug.Log("Ball is waiting...");
+            _ballMovement.SpawnBallAtCenter();
         }
 
         public override void UpdateState()

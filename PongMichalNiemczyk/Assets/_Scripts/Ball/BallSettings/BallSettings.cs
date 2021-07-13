@@ -5,6 +5,6 @@ namespace _Scripts.Ball
     [Serializable]
     public class BallSettings
     {
-        public float TEST_property;
+        public float _speed;
     }
 }

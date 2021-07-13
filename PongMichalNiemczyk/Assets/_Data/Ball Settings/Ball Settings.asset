@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ball Settings
   m_EditorClassIdentifier: 
   _ballSettings:
-    TEST_property: 15.5
+    _speed: 10
