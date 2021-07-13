@@ -44,7 +44,7 @@ namespace _Scripts.Ball
 
         private void ResetPosition()
         {
-            _ballView.Position = new Vector3(0f, 0f, 0f);
+            _ballView.Position = Vector3.zero;
         }
     }
 }
