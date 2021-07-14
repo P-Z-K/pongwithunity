@@ -51,6 +51,7 @@ namespace _Scripts.Ball
             if (other.gameObject.CompareTag("Wall"))
             {
                 Debug.Log("The Ball hit the wall");
+                _ballMovement.AddRandomFactorToDirection();
             }
         }
     }

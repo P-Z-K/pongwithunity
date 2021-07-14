@@ -13,7 +13,7 @@ namespace _Scripts.Ball
             _ballSettings = ballSettings;
         }
 
-        public void SpawnBallAtCenter()
+        public void SpawnBallAtSceneCenter()
         {
             ResetPosition();
             ResetRotation();
@@ -46,6 +46,19 @@ namespace _Scripts.Ball
             }
         }
 
+        public void AddRandomFactorToDirection()
+        {
+            var direction = _ballView.Rigidbody2D.velocity;
+            var speed = direction.magnitude;
+            
+            var randomFactor = _ballSettings._randomDirectionBounceFactor;
+            direction += new Vector2(
+                Random.Range(-randomFactor, randomFactor),
+                Random.Range(-randomFactor, randomFactor));
+
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
+        }
+
         private void PreventVerticalLoops(Vector2 direction)
         {
             Debug.Log("Preventing vertical loops...");
@@ -74,7 +87,7 @@ namespace _Scripts.Ball
         {
             // TODO: Remove magic numbers
             var x = Random.Range(-1f, 1f);
-            var y = 0.2f;//Random.Range(-1f, 1f);
+            var y = Random.Range(-1f, 1f);
             return new Vector2(x, y);
         }
 
