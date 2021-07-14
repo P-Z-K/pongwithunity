@@ -56,7 +56,7 @@ namespace _Scripts.Ball
                 Random.Range(-randomFactor, randomFactor),
                 Random.Range(-randomFactor, randomFactor));
 
-            _ballView.Rigidbody2D.velocity = direction * speed;
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
 
         private void PreventVerticalLoops(Vector2 direction)
