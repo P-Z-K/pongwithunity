@@ -17,5 +17,5 @@ MonoBehaviour:
     _minimumVerticalMovement: 2
     _minimumHorizontalMovement: 2
     _randomDirectionBounceFactor: 1
-    _possibleHorizontalDirection: 0.1
-    _possibleVerticalDirection: 0.12
+    _maximumStartHorizontalDirection: 3.95
+    _maximumStartVerticalDirection: 2.19
