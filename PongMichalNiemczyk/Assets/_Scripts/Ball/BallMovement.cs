@@ -85,9 +85,10 @@ namespace _Scripts.Ball
 
         private Vector2 GetRandomDirection()
         {
-            // TODO: Remove magic numbers
-            var x = Random.Range(-1f, 1f);
-            var y = Random.Range(-1f, 1f);
+            var x = Random.Range(-_ballSettings._maximumStartHorizontalDirection , 
+                _ballSettings._maximumStartHorizontalDirection);
+            var y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
+                _ballSettings._maximumStartVerticalDirection);
             return new Vector2(x, y);
         }
 
