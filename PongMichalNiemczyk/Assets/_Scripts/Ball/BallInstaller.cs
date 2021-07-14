@@ -11,7 +11,7 @@ namespace _Scripts.Ball
         {
             Container.BindInterfacesAndSelfTo<BallStateManager>().AsSingle();
             Container.Bind<BallMovement>().AsSingle();
-            Container.BindInstance(_ballView);
+            Container.BindInstance(_ballView).AsSingle();
         }
     }
 }
