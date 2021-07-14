@@ -11,7 +11,7 @@ namespace _Scripts.Root
 
         public override void EnterState()
         {
-            Debug.Log("Entering Game over state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Entering Game over state");
         }
 
         public override void UpdateState()
@@ -25,7 +25,7 @@ namespace _Scripts.Root
 
         public override void ExitState()
         {
-            Debug.Log("Exiting Game over state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Exiting Game over state");
         }
 
         private void TEST_HandleUserInput()

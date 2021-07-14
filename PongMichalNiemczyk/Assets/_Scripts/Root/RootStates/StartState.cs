@@ -11,7 +11,7 @@ namespace _Scripts.Root
 
         public override void EnterState()
         {
-            Debug.Log("Entering Start state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Entering Start state");
         }
 
         public override void UpdateState()
@@ -25,7 +25,7 @@ namespace _Scripts.Root
 
         public override void ExitState()
         {
-            Debug.Log("Exiting Start state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Exiting Start state");
         }
 
         private void TEST_HandleUserInput()

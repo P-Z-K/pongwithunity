@@ -15,7 +15,7 @@ namespace _Scripts.Root
 
         public override void EnterState()
         {
-            Debug.Log("Entering Gameplay state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
             _ballStateManager.ChangeStateTo<BallStateWaitingForStart>();
         }
 
@@ -30,7 +30,7 @@ namespace _Scripts.Root
 
         public override void ExitState()
         {
-            Debug.Log("Exiting Gameplay state");
+            Debug.Log("<color=red>[ROOT STATE]</color> Exiting Gameplay state");
         }
 
         private void TEST_HandleUserInput()

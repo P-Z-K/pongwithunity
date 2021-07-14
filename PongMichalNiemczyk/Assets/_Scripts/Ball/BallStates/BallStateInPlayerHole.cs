@@ -19,7 +19,7 @@ namespace _Scripts.Ball
 
         public override void EnterState()
         {
-            Debug.Log("[BALL STATE] Ball is in player hole...");
+            Debug.Log("<color=lime>[BALL STATE]</color> Ball is in player hole...");
             _ballMovement.StopMove();
         }
 

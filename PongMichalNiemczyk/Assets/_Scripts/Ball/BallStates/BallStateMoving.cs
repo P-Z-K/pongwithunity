@@ -19,7 +19,7 @@ namespace _Scripts.Ball
 
         public override void EnterState()
         {
-            Debug.Log("[BALL STATE] Ball starts moving...");
+            Debug.Log("<color=lime>[BALL STATE]</color> Ball starts moving...");
             _ballMovement.StartMove();
         }
 
@@ -41,7 +41,7 @@ namespace _Scripts.Ball
         {
             if (other.gameObject.CompareTag("PlayerHole"))
             {
-                Debug.Log("The ball fell into the player hole");
+                Debug.Log("<color=lime>[BALL INFO]</color> The ball fell into the player hole");
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
             }
         }
@@ -50,7 +50,7 @@ namespace _Scripts.Ball
         {
             if (other.gameObject.CompareTag("Wall"))
             {
-                Debug.Log("The Ball hit the wall");
+                Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the wall");
                 _ballMovement.AddRandomFactorToDirection();
             }
         }

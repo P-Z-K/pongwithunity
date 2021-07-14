@@ -61,7 +61,7 @@ namespace _Scripts.Ball
 
         private void PreventVerticalLoops(Vector2 direction)
         {
-            Debug.Log("Preventing vertical loops...");
+            Debug.Log("<color=lime>[BALL INFO]</color> Preventing vertical loops...");
             var speed = direction.magnitude;
             
             var minimumXValue = _ballSettings._minimumHorizontalMovement;
@@ -73,7 +73,7 @@ namespace _Scripts.Ball
 
         private void PreventHorizontalLoops(Vector2 direction)
         {
-            Debug.Log("Preventing horizontal loops...");
+            Debug.Log("<color=lime>[BALL INFO]</color> Preventing horizontal loops...");
             var speed = direction.magnitude;
             
             var minimumYValue = _ballSettings._minimumVerticalMovement;
