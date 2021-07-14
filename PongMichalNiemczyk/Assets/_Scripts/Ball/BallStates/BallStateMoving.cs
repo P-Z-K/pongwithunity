@@ -25,6 +25,7 @@ namespace _Scripts.Ball
 
         public override void UpdateState()
         {
+            _ballMovement.CheckIfBallMovingProperly();
         }
 
         public override void UpdatePhysicsState()

@@ -20,7 +20,7 @@ namespace _Scripts.Ball
         }
 
         public void StartMove()
-        { 
+        {
             _ballView.Rigidbody2D.velocity = GetRandomDirection().normalized * _ballSettings._speed;
         }
 
@@ -29,11 +29,52 @@ namespace _Scripts.Ball
             _ballView.Rigidbody2D.velocity = Vector2.zero;
         }
 
+        public void CheckIfBallMovingProperly()
+        {
+            var direction = _ballView.Rigidbody2D.velocity;
+            
+            var minimumYValue = _ballSettings._minimumVerticalMovement;
+            if (direction.y > -minimumYValue && direction.y < minimumYValue)
+            {
+                PreventHorizontalLoops(direction);
+            }
+
+            var minimumXValue = _ballSettings._minimumHorizontalMovement;
+            if (direction.x > -minimumXValue && direction.x < minimumXValue)
+            {
+                PreventVerticalLoops(direction);
+            }
+        }
+
+        private void PreventVerticalLoops(Vector2 direction)
+        {
+            Debug.Log("Preventing vertical loops...");
+            var speed = direction.magnitude;
+            
+            var minimumXValue = _ballSettings._minimumHorizontalMovement;
+            // Adjust the x, make sure it keeps going into the direction it was going
+            direction.x = direction.x < 0 ?  -minimumXValue : minimumXValue;
+                
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
+        }
+
+        private void PreventHorizontalLoops(Vector2 direction)
+        {
+            Debug.Log("Preventing horizontal loops...");
+            var speed = direction.magnitude;
+            
+            var minimumYValue = _ballSettings._minimumVerticalMovement;
+            // Adjust the y, make sure it keeps going into the direction it was going
+            direction.y = direction.y < 0 ? -minimumYValue : minimumYValue;
+                
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
+        }
+
         private Vector2 GetRandomDirection()
         {
             // TODO: Remove magic numbers
             var x = Random.Range(-1f, 1f);
-            var y = Random.Range(-1f, 1f);
+            var y = 0.2f;//Random.Range(-1f, 1f);
             return new Vector2(x, y);
         }
 

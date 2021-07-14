@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballSettings:
     _speed: 10
+    _minimumVerticalMovement: 2
