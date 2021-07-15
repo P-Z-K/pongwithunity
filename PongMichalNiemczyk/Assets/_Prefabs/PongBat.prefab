@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7953021723612147294}
   - component: {fileID: 7953021723612147292}
   - component: {fileID: 7953021723612147295}
+  - component: {fileID: 995183645}
+  - component: {fileID: 995183647}
   m_Layer: 0
   m_Name: PongBat
   m_TagString: Untagged
@@ -132,3 +134,30 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &995183645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7e33ab6c0741e08ac1b02de94c2056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 7953021723612147292}
+--- !u!114 &995183647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71247c57a7f4130bc03bfe3f6e85676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftMoveBind: 97
+  _rightMoveBind: 100
