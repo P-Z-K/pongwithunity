@@ -19,6 +19,16 @@ namespace _Scripts.Ball
             ResetRotation();
         }
 
+        private void ResetRotation()
+        {
+            _ballView.Rotation = new Quaternion(0f, 0f, 0f, 0f);
+        }
+
+        private void ResetPosition()
+        {
+            _ballView.Position = Vector3.zero;
+        }
+
         public void StartMove()
         {
             _ballView.Rigidbody2D.velocity = GetRandomDirection().normalized * _ballSettings._speed;
@@ -90,16 +100,6 @@ namespace _Scripts.Ball
             var y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
                 _ballSettings._maximumStartVerticalDirection);
             return new Vector2(x, y);
-        }
-
-        private void ResetRotation()
-        {
-            _ballView.Rotation = new Quaternion(0f, 0f, 0f, 0f);
-        }
-
-        private void ResetPosition()
-        {
-            _ballView.Position = Vector3.zero;
         }
     }
 }

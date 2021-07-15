@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 7953021723612147295}
   - component: {fileID: 995183645}
   - component: {fileID: 995183647}
+  - component: {fileID: 1836842926}
+  - component: {fileID: 1836842925}
+  - component: {fileID: 1836842928}
+  - component: {fileID: 1836842927}
   m_Layer: 0
   m_Name: PongBat
   m_TagString: Untagged
@@ -161,3 +165,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftMoveBind: 97
   _rightMoveBind: 100
+--- !u!114 &1836842926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components: []
+  _identifier: 
+  _useSceneContext: 0
+  _context: {fileID: 1836842925}
+  _bindType: 0
+--- !u!114 &1836842925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1836842928}
+  - {fileID: 1836842927}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &1836842928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6941f27cce564cd2a3906fdbee2a4355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pongBatView: {fileID: 995183645}
+--- !u!114 &1836842927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973d18d0b74449d29c40ded73c3f424c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputManager: {fileID: 995183647}
