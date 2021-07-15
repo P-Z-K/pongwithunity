@@ -41,9 +41,9 @@ namespace _Scripts.Ball
 
         public void CheckIfBallMovingProperly()
         {
-            var direction = _ballView.Rigidbody2D.velocity;
+            Vector2 direction = _ballView.Rigidbody2D.velocity;
 
-            var minimumYValue = _ballSettings._minimumVerticalMovement;
+            float minimumYValue = _ballSettings._minimumVerticalMovement;
             if (direction.y > -minimumYValue && direction.y < minimumYValue)
             {
                 PreventHorizontalLoops(direction);
@@ -58,10 +58,10 @@ namespace _Scripts.Ball
 
         public void AddRandomFactorToDirection()
         {
-            var direction = _ballView.Rigidbody2D.velocity;
-            var speed = direction.magnitude;
+            Vector2 direction = _ballView.Rigidbody2D.velocity;
+            float speed = direction.magnitude;
 
-            var randomFactor = _ballSettings._randomDirectionBounceFactor;
+            float randomFactor = _ballSettings._randomDirectionBounceFactor;
             direction += new Vector2(
                 Random.Range(-randomFactor, randomFactor),
                 Random.Range(-randomFactor, randomFactor));
@@ -72,9 +72,9 @@ namespace _Scripts.Ball
         private void PreventVerticalLoops(Vector2 direction)
         {
             Debug.Log("<color=lime>[BALL INFO]</color> Preventing vertical loops...");
-            var speed = direction.magnitude;
+            float speed = direction.magnitude;
 
-            var minimumXValue = _ballSettings._minimumHorizontalMovement;
+            float minimumXValue = _ballSettings._minimumHorizontalMovement;
             // Adjust the x, make sure it keeps going into the direction it was going
             direction.x = direction.x < 0 ? -minimumXValue : minimumXValue;
 
@@ -84,9 +84,9 @@ namespace _Scripts.Ball
         private void PreventHorizontalLoops(Vector2 direction)
         {
             Debug.Log("<color=lime>[BALL INFO]</color> Preventing horizontal loops...");
-            var speed = direction.magnitude;
+            float speed = direction.magnitude;
 
-            var minimumYValue = _ballSettings._minimumVerticalMovement;
+            float minimumYValue = _ballSettings._minimumVerticalMovement;
             // Adjust the y, make sure it keeps going into the direction it was going
             direction.y = direction.y < 0 ? -minimumYValue : minimumYValue;
 
@@ -95,9 +95,9 @@ namespace _Scripts.Ball
 
         private Vector2 GetRandomDirection()
         {
-            var x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
+            float x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
                 _ballSettings._maximumStartHorizontalDirection);
-            var y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
+            float y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
                 _ballSettings._maximumStartVerticalDirection);
             return new Vector2(x, y);
         }
