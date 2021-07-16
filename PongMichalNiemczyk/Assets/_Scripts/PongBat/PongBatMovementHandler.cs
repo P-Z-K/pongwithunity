@@ -26,7 +26,7 @@ namespace _Scripts.PongBat
         private void MoveHorizontally()
         {
             var rb2D = _pongBatView.Rigidbody2D;
-            var horizontalMove = new Vector2(_inputManager.GetHorizontalMove(), 0f)
+            var horizontalMove = new Vector2(_inputManager.HorizontalMove, 0f)
                                  * _pongBatSettings._moveSpeed * Time.fixedDeltaTime;
             rb2D.MovePosition(rb2D.position + horizontalMove);
         }

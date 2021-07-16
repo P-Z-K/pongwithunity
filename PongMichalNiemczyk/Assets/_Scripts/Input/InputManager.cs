@@ -9,24 +9,19 @@ namespace _Scripts
         [SerializeField] private KeyCode _leftMoveBind;
         [SerializeField] private KeyCode _rightMoveBind;
 
-        private float _horizontalMove;
-
-        public float GetHorizontalMove()
-        {
-            return _horizontalMove;
-        }
+        public float HorizontalMove { get; private set; }
 
         private void Update()
         {
-            _horizontalMove = 0f;
+            HorizontalMove = 0f;
             
             if (Input.GetKey(_leftMoveBind))
             {
-                _horizontalMove = -1f;
+                HorizontalMove = -1f;
             }
             else if (Input.GetKey(_rightMoveBind))
             {
-                _horizontalMove = 1f;
+                HorizontalMove = 1f;
             }
         }
     }
