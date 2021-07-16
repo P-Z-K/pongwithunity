@@ -9,7 +9,7 @@ namespace _Scripts
 
         public override void InstallBindings()
         {
-            Container.BindInstance(_inputManager);
+            Container.BindInstance(_inputManager).AsSingle();
         }
     }
 }
