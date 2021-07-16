@@ -2,26 +2,23 @@ using Zenject;
 
 namespace _Scripts.Ball
 {
-    public class BallStateManager : ITickable, IInitializable, IFixedTickable
+    public class BallStateManager
     {
         public BallState CurrentState { get; private set; }
-        private readonly DiContainer _diContainer;
+        private DiContainer _diContainer;
 
-        public BallStateManager(DiContainer diContainer)
+        [Inject]
+        public void Construct(DiContainer diContainer)
         {
             _diContainer = diContainer;
         }
 
-        public void Initialize()
-        {
-        }
-
-        public void Tick()
+        public void Update()
         {
             CurrentState?.UpdateState();
         }
 
-        public void FixedTick()
+        public void UpdatePhysics()
         {
             CurrentState?.UpdatePhysicsState();
         }

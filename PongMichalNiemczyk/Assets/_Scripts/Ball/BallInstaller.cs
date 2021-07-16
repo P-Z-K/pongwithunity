@@ -9,7 +9,7 @@ namespace _Scripts.Ball
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<BallStateManager>().AsSingle();
+            Container.Bind<BallStateManager>().AsSingle();
             Container.Bind<BallMovement>().AsSingle();
             Container.BindInstance(_ballView).AsSingle();
         }

@@ -25,11 +25,13 @@ namespace _Scripts.Root
 
         public override void UpdateState()
         {
+            _ballStateManager.Update();
             TEST_HandleUserInput();
         }
 
         public override void UpdatePhysicsState()
         {
+            _ballStateManager.UpdatePhysics();
             foreach (var pongBatMovementHandler in _pongBatMovementHandlers)
             {
                 pongBatMovementHandler.UpdatePhysics();
