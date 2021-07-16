@@ -1,11 +1,15 @@
+using System.Collections.Generic;
 using _Scripts.Ball;
+using _Scripts.PongBat;
 using UnityEngine;
+using Zenject;
 
 namespace _Scripts.Root
 {
     public class GameplayState : State<Root>
     {
         private readonly BallStateManager _ballStateManager;
+        [Inject] private List<PongBatMovementHandler> _pongBatMovementHandlers = new List<PongBatMovementHandler>();
 
         public GameplayState(Root owner, BallStateManager ballStateManager) 
             : base(owner)
@@ -26,6 +30,10 @@ namespace _Scripts.Root
 
         public override void UpdatePhysicsState()
         {
+            foreach (var pongBatMovementHandler in _pongBatMovementHandlers)
+            {
+                pongBatMovementHandler.UpdatePhysics();
+            }
         }
 
         public override void ExitState()

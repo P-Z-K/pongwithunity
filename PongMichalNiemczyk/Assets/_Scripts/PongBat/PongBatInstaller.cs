@@ -9,7 +9,6 @@ namespace _Scripts.PongBat
         public override void InstallBindings()
         {
             Container.BindInstance(_pongBatView).AsSingle();
-            Container.BindInterfacesAndSelfTo<PongBatMovementHandler>().AsSingle();
         }
     }
 }

@@ -422,28 +422,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &995183645 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6428171511471076758, guid: 90eebf3e3aa3ab448b35282ea78d421c, type: 3}
-  m_PrefabInstance: {fileID: 6428171512916624928}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7e33ab6c0741e08ac1b02de94c2056, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &995183647 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6428171511471076756, guid: 90eebf3e3aa3ab448b35282ea78d421c, type: 3}
-  m_PrefabInstance: {fileID: 6428171512916624928}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71247c57a7f4130bc03bfe3f6e85676, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1032678155
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,8 +491,6 @@ GameObject:
   - component: {fileID: 1081307708}
   - component: {fileID: 1081307710}
   - component: {fileID: 1081307711}
-  - component: {fileID: 1081307712}
-  - component: {fileID: 1081307713}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -596,32 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballView: {fileID: 222561997}
---- !u!114 &1081307712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081307707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 973d18d0b74449d29c40ded73c3f424c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputManager: {fileID: 995183647}
---- !u!114 &1081307713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081307707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6941f27cce564cd2a3906fdbee2a4355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pongBatView: {fileID: 995183645}
 --- !u!1001 &2885995737701636008
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,20 +3,22 @@ using Zenject;
 
 namespace _Scripts.PongBat
 {
-    public class PongBatMovementHandler : IFixedTickable
+    public class PongBatMovementHandler : MonoBehaviour
     {
-        private readonly PongBatView _pongBatView;
-        private readonly PongBatSettings _pongBatSettings;
-        private readonly InputManager _inputManager;
+        private PongBatView _pongBatView;
+        private PongBatSettings _pongBatSettings;
+        private InputManager _inputManager;
 
-        public PongBatMovementHandler(PongBatView pongBatView, InputManager inputManager, PongBatSettings pongBatSettings)
+        [Inject]
+        public void Construct(PongBatView pongBatView, InputManager inputManager,
+            PongBatSettings pongBatSettings)
         {
             _pongBatView = pongBatView;
             _inputManager = inputManager;
             _pongBatSettings = pongBatSettings;
         }
 
-        public void FixedTick()
+        public void UpdatePhysics()
         {
             MoveHorizontally();
         }
@@ -24,7 +26,7 @@ namespace _Scripts.PongBat
         private void MoveHorizontally()
         {
             var rb2D = _pongBatView.Rigidbody2D;
-            var horizontalMove = new Vector2(_inputManager.GetHorizontalMove(), 0f) 
+            var horizontalMove = new Vector2(_inputManager.GetHorizontalMove(), 0f)
                                  * _pongBatSettings._moveSpeed * Time.fixedDeltaTime;
             rb2D.MovePosition(rb2D.position + horizontalMove);
         }
