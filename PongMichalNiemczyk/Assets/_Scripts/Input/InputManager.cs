@@ -14,7 +14,7 @@ namespace _Scripts
         private void Update()
         {
             HorizontalMove = 0f;
-            
+
             if (Input.GetKey(_leftMoveBind))
             {
                 HorizontalMove = -1f;
