@@ -1,20 +1,27 @@
+using _Scripts.Root;
 using UnityEngine;
+using Zenject;
 
 namespace _Scripts.Ball
 {
-    public class BallStateMoving : BallState
+    public class BallStateMoving : State<BallStateManager>
     {
-        private readonly BallView _ballView;
-        private readonly BallSettings _ballSettings;
         private readonly BallMovement _ballMovement;
+        private readonly SignalBus _signalBus;
 
-        public BallStateMoving(BallStateManager owner, BallView ballView, 
-            BallSettings ballSettings, BallMovement ballMovement)
+        public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus)
             : base(owner)
         {
-            _ballView = ballView;
-            _ballSettings = ballSettings;
             _ballMovement = ballMovement;
+            _signalBus = signalBus;
+
+            SubscribeSignals();
+        }
+
+        private void SubscribeSignals()
+        {
+            _signalBus.Subscribe<TriggerEntered2DSignal>(x => OnTriggerEnter2D(x.Other));
+            _signalBus.Subscribe<CollisionEntered2DSignal>(x => OnCollisionEnter2D(x.Other));
         }
 
         public override void EnterState()
@@ -30,14 +37,13 @@ namespace _Scripts.Ball
 
         public override void UpdatePhysicsState()
         {
-            
         }
 
         public override void ExitState()
         {
         }
 
-        public override void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("PlayerHole"))
             {
@@ -46,7 +52,7 @@ namespace _Scripts.Ball
             }
         }
 
-        public override void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Wall"))
             {

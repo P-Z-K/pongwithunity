@@ -8,14 +8,12 @@ namespace _Scripts.Ball
     {
         [SerializeField] private Rigidbody2D _rigidbody2D;
 
-        private BallStateManager _ballStateManager;
-        private BallSettings _ballSettings;
+        private SignalBus _signalBus;
 
         [Inject]
-        public void Construct(BallStateManager ballStateManager, BallSettings ballSettings)
+        public void Construct(SignalBus signalBus)
         {
-            _ballStateManager = ballStateManager;
-            _ballSettings = ballSettings;
+            _signalBus = signalBus;
         }
 
         public Rigidbody2D Rigidbody2D
@@ -37,12 +35,12 @@ namespace _Scripts.Ball
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _ballStateManager.CurrentState?.OnTriggerEnter2D(other);
+            _signalBus.Fire(new TriggerEntered2DSignal(other));
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            _ballStateManager.CurrentState?.OnCollisionEnter2D(other);
+            _signalBus.Fire(new CollisionEntered2DSignal(other));
         }
     }
 }

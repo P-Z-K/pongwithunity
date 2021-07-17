@@ -12,6 +12,9 @@ namespace _Scripts.Ball
             Container.Bind<BallStateManager>().AsSingle();
             Container.Bind<BallMovement>().AsSingle();
             Container.BindInstance(_ballView).AsSingle();
+
+            Container.DeclareSignal<CollisionEntered2DSignal>();
+            Container.DeclareSignal<TriggerEntered2DSignal>();
         }
     }
 }
