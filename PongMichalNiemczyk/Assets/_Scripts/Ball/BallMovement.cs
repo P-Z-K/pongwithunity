@@ -33,6 +33,15 @@ namespace _Scripts.Ball
         {
             _ballView.Rigidbody2D.velocity = GetRandomDirection().normalized * _ballSettings._speed;
         }
+        
+        private Vector2 GetRandomDirection()
+        {
+            float x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
+                _ballSettings._maximumStartHorizontalDirection);
+            float y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
+                _ballSettings._maximumStartVerticalDirection);
+            return new Vector2(x, y);
+        }
 
         public void StopMove()
         {
@@ -54,19 +63,6 @@ namespace _Scripts.Ball
             {
                 PreventVerticalLoops(direction);
             }
-        }
-
-        public void AddRandomFactorToDirection()
-        {
-            Vector2 direction = _ballView.Rigidbody2D.velocity;
-            float speed = direction.magnitude;
-
-            float randomFactor = _ballSettings._randomDirectionBounceFactor;
-            direction += new Vector2(
-                Random.Range(-randomFactor, randomFactor),
-                Random.Range(-randomFactor, randomFactor));
-
-            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
 
         private void PreventVerticalLoops(Vector2 direction)
@@ -92,14 +88,18 @@ namespace _Scripts.Ball
 
             _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
-
-        private Vector2 GetRandomDirection()
+        
+        public void AddRandomFactorToDirection()
         {
-            float x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
-                _ballSettings._maximumStartHorizontalDirection);
-            float y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
-                _ballSettings._maximumStartVerticalDirection);
-            return new Vector2(x, y);
+            Vector2 direction = _ballView.Rigidbody2D.velocity;
+            float speed = direction.magnitude;
+
+            float randomFactor = _ballSettings._randomDirectionBounceFactor;
+            direction += new Vector2(
+                Random.Range(-randomFactor, randomFactor),
+                Random.Range(-randomFactor, randomFactor));
+
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
     }
 }
