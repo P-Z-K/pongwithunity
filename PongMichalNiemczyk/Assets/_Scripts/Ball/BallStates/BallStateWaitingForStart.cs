@@ -1,19 +1,15 @@
+using _Scripts.Root;
 using UnityEngine;
 
 namespace _Scripts.Ball
 {
-    public class BallStateWaitingForStart : BallState
+    public class BallStateWaitingForStart : State<BallStateManager>
     {
-        private readonly BallView _ballView;
-        private readonly BallSettings _ballSettings;
         private readonly BallMovement _ballMovement;
 
-        public BallStateWaitingForStart(BallStateManager owner, BallView ballView,
-            BallSettings ballSettings, BallMovement ballMovement)
+        public BallStateWaitingForStart(BallStateManager owner, BallMovement ballMovement)
             : base(owner)
         {
-            _ballView = ballView;
-            _ballSettings = ballSettings;
             _ballMovement = ballMovement;
         }
 
@@ -33,16 +29,6 @@ namespace _Scripts.Ball
 
         public override void ExitState()
         {
-        }
-
-        public override void OnTriggerEnter2D(Collider2D other)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnCollisionEnter2D(Collision2D other)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

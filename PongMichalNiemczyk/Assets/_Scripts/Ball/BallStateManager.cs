@@ -1,10 +1,11 @@
+using _Scripts.Root;
 using Zenject;
 
 namespace _Scripts.Ball
 {
     public class BallStateManager
     {
-        public BallState CurrentState { get; private set; }
+        public State<BallStateManager> CurrentState { get; private set; }
         private DiContainer _diContainer;
 
         [Inject]
@@ -23,7 +24,7 @@ namespace _Scripts.Ball
             CurrentState?.UpdatePhysicsState();
         }
 
-        public void ChangeStateTo<T>() where T : BallState
+        public void ChangeStateTo<T>() where T : State<BallStateManager>
         {
             CurrentState?.ExitState();
             CurrentState = _diContainer.Instantiate<T>();
