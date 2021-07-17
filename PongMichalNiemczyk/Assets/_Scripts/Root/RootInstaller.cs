@@ -7,6 +7,8 @@ namespace _Scripts.Root
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<Root>().AsSingle();
+
+            SignalBusInstaller.Install(Container);
         }
     }
 }
