@@ -1,4 +1,5 @@
 using _Scripts.Root;
+using _Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
@@ -8,12 +9,15 @@ namespace _Scripts.Ball
     {
         private readonly BallMovement _ballMovement;
         private readonly SignalBus _signalBus;
+        private readonly TagsSettings _tagsSettings;
 
-        public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus)
+        public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus, 
+            TagsSettings tagsSettings)
             : base(owner)
         {
             _ballMovement = ballMovement;
             _signalBus = signalBus;
+            _tagsSettings = tagsSettings;
 
             SubscribeSignals();
         }
@@ -45,7 +49,7 @@ namespace _Scripts.Ball
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("PlayerHole"))
+            if (other.gameObject.CompareTag(_tagsSettings.PlayerHoleTag))
             {
                 Debug.Log("<color=lime>[BALL INFO]</color> The ball fell into the player hole");
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
@@ -54,7 +58,7 @@ namespace _Scripts.Ball
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Wall"))
+            if (other.gameObject.CompareTag(_tagsSettings.WallTag))
             {
                 Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the wall");
                 _ballMovement.AddRandomFactorToDirection();
