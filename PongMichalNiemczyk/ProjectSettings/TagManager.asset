@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - PlayerHole
+  - PlayerPongBat
   layers:
   - Default
   - TransparentFX

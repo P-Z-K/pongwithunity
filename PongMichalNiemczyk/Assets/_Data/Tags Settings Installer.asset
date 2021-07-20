@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Tags Settings Installer
   m_EditorClassIdentifier: 
   _tagsSettings:
-    PlayerTag: Player
+    PlayerPongBatTag: PlayerPongBat
     WallTag: Wall
     PlayerHoleTag: PlayerHole
