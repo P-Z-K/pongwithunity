@@ -519,6 +519,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1081307710}
   - {fileID: 1081307711}
+  - {fileID: 1081307712}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -587,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef7b205d98546f5bdfa5c31f5baafa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundClipPrefab: {fileID: 0}
+  _soundClipPrefab: {fileID: 2629966946841506148, guid: dd383ed28f801014bad3fbcd030f08b1, type: 3}
 --- !u!1001 &2885995737701636008
 PrefabInstance:
   m_ObjectHideFlags: 0
