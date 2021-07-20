@@ -6,6 +6,7 @@ namespace _Scripts.Audio
     public enum Sound
     {
         BallHit,
+        PongBatHit,
     }
     
     [Serializable]
