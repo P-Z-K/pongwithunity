@@ -26,8 +26,8 @@ namespace _Scripts.Ball
 
         private void SubscribeSignals()
         {
-            _signalBus.Subscribe<TriggerEntered2DSignal>(x => OnTriggerEnter2D(x.Other));
-            _signalBus.Subscribe<CollisionEntered2DSignal>(x => OnCollisionEnter2D(x.Other));
+            _signalBus.Subscribe<BallTriggerEntered2DSignal>(x => OnTriggerEnter2D(x.Other));
+            _signalBus.Subscribe<BallCollisionEntered2DSignal>(x => OnCollisionEnter2D(x.Other));
         }
 
         public override void EnterState()

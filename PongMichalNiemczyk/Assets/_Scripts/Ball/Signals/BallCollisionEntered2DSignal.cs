@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace _Scripts.Ball
 {
-    public class CollisionEntered2DSignal
+    public class BallCollisionEntered2DSignal
     {
         public Collision2D Other { get; private set; }
 
-        public CollisionEntered2DSignal(Collision2D other)
+        public BallCollisionEntered2DSignal(Collision2D other)
         {
             Other = other;
         }

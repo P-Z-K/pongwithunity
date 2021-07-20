@@ -35,12 +35,12 @@ namespace _Scripts.Ball
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _signalBus.Fire(new TriggerEntered2DSignal(other));
+            _signalBus.Fire(new BallTriggerEntered2DSignal(other));
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            _signalBus.Fire(new CollisionEntered2DSignal(other));
+            _signalBus.Fire(new BallCollisionEntered2DSignal(other));
         }
     }
 }

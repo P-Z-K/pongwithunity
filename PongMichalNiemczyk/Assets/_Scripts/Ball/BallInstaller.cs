@@ -13,8 +13,8 @@ namespace _Scripts.Ball
             Container.Bind<BallMovement>().AsSingle();
             Container.BindInstance(_ballView).AsSingle();
 
-            Container.DeclareSignal<CollisionEntered2DSignal>();
-            Container.DeclareSignal<TriggerEntered2DSignal>();
+            Container.DeclareSignal<BallCollisionEntered2DSignal>();
+            Container.DeclareSignal<BallTriggerEntered2DSignal>();
             Container.DeclareSignal<BallHitWallSignal>();
             Container.DeclareSignal<BallHitPongBatSignal>();
         }
