@@ -36,12 +36,12 @@ namespace _Scripts.Audio
             {
                 if (!soundEntity.IsPlaying)
                 {
-                    ReturnAudioSourceManagerToPool(soundEntity);
+                    ReturnSoundEntityToPool(soundEntity);
                 }
             }
         }
 
-        private void ReturnAudioSourceManagerToPool(SoundEntity soundEntity)
+        private void ReturnSoundEntityToPool(SoundEntity soundEntity)
         {
             _soundEntityPool.Despawn(soundEntity);
             _soundEntities.Remove(soundEntity);
