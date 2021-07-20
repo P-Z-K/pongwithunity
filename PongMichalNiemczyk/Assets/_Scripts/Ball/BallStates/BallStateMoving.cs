@@ -8,16 +8,18 @@ namespace _Scripts.Ball
     public class BallStateMoving : State<BallStateManager>
     {
         private readonly BallMovement _ballMovement;
+        private readonly BallView _ballView;
         private readonly SignalBus _signalBus;
         private readonly TagsSettings _tagsSettings;
 
         public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus, 
-            TagsSettings tagsSettings)
+            TagsSettings tagsSettings, BallView ballView)
             : base(owner)
         {
             _ballMovement = ballMovement;
             _signalBus = signalBus;
             _tagsSettings = tagsSettings;
+            _ballView = ballView;
 
             SubscribeSignals();
         }
@@ -61,6 +63,8 @@ namespace _Scripts.Ball
             if (other.gameObject.CompareTag(_tagsSettings.WallTag))
             {
                 Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the wall");
+                
+                _signalBus.Fire(new BallHitWallSignal(_ballView.Position));
                 _ballMovement.AddRandomFactorToDirection();
             }
         }

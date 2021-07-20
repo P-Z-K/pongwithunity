@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Ball;
 using UnityEngine;
 using Zenject;
 
@@ -11,12 +12,21 @@ namespace _Scripts.Audio
         
         private readonly SoundEntity.Pool _soundEntityPool;
         private readonly SoundSettings _soundSettings;
+        private readonly SignalBus _signalBus;
 
 
-        public SoundEntityPooler(SoundEntity.Pool soundEntityPool, SoundSettings soundSettings)
+        public SoundEntityPooler(SoundEntity.Pool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
         {
             _soundEntityPool = soundEntityPool;
             _soundSettings = soundSettings;
+            _signalBus = signalBus;
+            
+            SubscribeSignals();
+        }
+
+        private void SubscribeSignals()
+        {
+            _signalBus.Subscribe<BallHitWallSignal>(x => Play(Sound.BallHit, x.BallPosition));
         }
 
         public void Update()
