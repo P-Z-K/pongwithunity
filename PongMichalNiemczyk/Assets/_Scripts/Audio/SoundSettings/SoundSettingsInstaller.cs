@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Audio.SoundSettings
+namespace _Scripts.Audio
 {
     [CreateAssetMenu(menuName = "Settings/Create Sound Settings")]
     public class SoundSettingsInstaller : ScriptableObjectInstaller

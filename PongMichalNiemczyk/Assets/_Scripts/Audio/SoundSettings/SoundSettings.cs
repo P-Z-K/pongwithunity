@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Scripts.Audio.SoundSettings
+namespace _Scripts.Audio
 {
     public enum Sound
     {
