@@ -26,7 +26,7 @@ namespace _Scripts.Audio
 
         private void SubscribeSignals()
         {
-            _signalBus.Subscribe<BallHitWallSignal>(x => Play(Sound.BallHit, x.BallPosition));
+            _signalBus.Subscribe<BallHitWallSignal>(x => Play(Sound.WallHit, x.BallPosition));
             _signalBus.Subscribe<BallHitPongBatSignal>(x => Play(Sound.PongBatHit, x.BallPosition));
         }
 

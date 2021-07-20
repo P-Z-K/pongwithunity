@@ -5,7 +5,7 @@ namespace _Scripts.Audio
 {
     public enum Sound
     {
-        BallHit,
+        WallHit,
         PongBatHit,
     }
     
