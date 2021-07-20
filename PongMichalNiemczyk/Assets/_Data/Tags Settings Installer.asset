@@ -16,3 +16,4 @@ MonoBehaviour:
     PlayerPongBatTag: PlayerPongBat
     WallTag: Wall
     PlayerHoleTag: PlayerHole
+    MainCameraTag: MainCamera

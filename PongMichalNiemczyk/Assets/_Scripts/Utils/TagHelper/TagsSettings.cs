@@ -9,5 +9,6 @@ namespace _Scripts.Utils
         [TagSelector] public string PlayerPongBatTag;
         [TagSelector] public string WallTag;
         [TagSelector] public string PlayerHoleTag;
+        [TagSelector] public string MainCameraTag;
     }
 }
