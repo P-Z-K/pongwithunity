@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Scripts.Audio;
 using _Scripts.Ball;
 using _Scripts.PongBat;
 using UnityEngine;
@@ -8,13 +9,16 @@ namespace _Scripts.Root
 {
     public class GameplayState : State<Root>
     {
-        private readonly BallStateManager _ballStateManager;
         [Inject] private List<PongBatMovementHandler> _pongBatMovementHandlers = new List<PongBatMovementHandler>();
+        
+        private readonly BallStateManager _ballStateManager;
+        private SoundEntityPooler _soundEntityPooler;
 
-        public GameplayState(Root owner, BallStateManager ballStateManager) 
+        public GameplayState(Root owner, BallStateManager ballStateManager, SoundEntityPooler soundEntityPooler) 
             : base(owner)
         {
             _ballStateManager = ballStateManager;
+            _soundEntityPooler = soundEntityPooler;
         }
 
         public override void EnterState()
@@ -26,6 +30,8 @@ namespace _Scripts.Root
         public override void UpdateState()
         {
             _ballStateManager.Update();
+            _soundEntityPooler.Update();
+            
             TEST_HandleUserInput();
         }
 
