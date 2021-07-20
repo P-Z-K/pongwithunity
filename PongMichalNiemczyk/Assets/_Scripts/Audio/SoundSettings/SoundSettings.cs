@@ -1,0 +1,25 @@
+using System;
+using UnityEngine;
+
+namespace _Scripts.Audio.SoundSettings
+{
+    public enum Sound
+    {
+        BallHit,
+    }
+    
+    [Serializable]
+    public class SoundSettings
+    {
+        public SoundAudioClip[] _sounds;
+
+
+        [Serializable]
+        public class SoundAudioClip
+        {
+            public Sound _sound;
+            public AudioClip[] _audioClip;
+        }
+    }
+
+}
