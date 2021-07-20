@@ -16,6 +16,7 @@ namespace _Scripts.Ball
             Container.DeclareSignal<CollisionEntered2DSignal>();
             Container.DeclareSignal<TriggerEntered2DSignal>();
             Container.DeclareSignal<BallHitWallSignal>();
+            Container.DeclareSignal<BallHitPongBatSignal>();
         }
     }
 }

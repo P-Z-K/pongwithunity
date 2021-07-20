@@ -67,6 +67,11 @@ namespace _Scripts.Ball
                 _signalBus.Fire(new BallHitWallSignal(_ballView.Position));
                 _ballMovement.AddRandomFactorToDirection();
             }
+            else if (other.gameObject.CompareTag(_tagsSettings.PlayerPongBatTag))
+            {
+                Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the pong bat");
+                _signalBus.Fire(new BallHitPongBatSignal(_ballView.Position));
+            }
         }
     }
 }
