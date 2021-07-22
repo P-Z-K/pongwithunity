@@ -11,10 +11,10 @@ namespace _Scripts.Root
     {
         [Inject] private List<PongBatMovementHandler> _pongBatMovementHandlers = new List<PongBatMovementHandler>();
         
-        private readonly BallFacade _ballFacade;
+        private readonly IBallFacadable _ballFacade;
         private SoundEntityPooler _soundEntityPooler;
 
-        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, BallFacade ballFacade) 
+        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, IBallFacadable ballFacade) 
             : base(owner)
         {
             _soundEntityPooler = soundEntityPooler;
