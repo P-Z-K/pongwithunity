@@ -1,3 +1,4 @@
+using _Scripts.Ball;
 using Zenject;
 
 namespace _Scripts.Root
@@ -9,6 +10,9 @@ namespace _Scripts.Root
             Container.BindInterfacesAndSelfTo<Root>().AsSingle();
 
             SignalBusInstaller.Install(Container);
+            
+            Container.DeclareSignal<BallHitWallSignal>();
+            Container.DeclareSignal<BallHitPongBatSignal>();
         }
     }
 }

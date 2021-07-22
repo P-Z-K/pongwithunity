@@ -11,25 +11,25 @@ namespace _Scripts.Root
     {
         [Inject] private List<PongBatMovementHandler> _pongBatMovementHandlers = new List<PongBatMovementHandler>();
         
-        private readonly BallStateManager _ballStateManager;
+        private readonly BallFacade _ballFacade;
         private SoundEntityPooler _soundEntityPooler;
 
-        public GameplayState(Root owner, BallStateManager ballStateManager, SoundEntityPooler soundEntityPooler) 
+        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, BallFacade ballFacade) 
             : base(owner)
         {
-            _ballStateManager = ballStateManager;
             _soundEntityPooler = soundEntityPooler;
+            _ballFacade = ballFacade;
         }
 
         public override void EnterState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
-            _ballStateManager.ChangeStateTo<BallStateWaitingForStart>();
+            _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
 
         public override void UpdateState()
         {
-            _ballStateManager.Update();
+            _ballFacade.Update();
             _soundEntityPooler.Update();
             
             TEST_HandleUserInput();
@@ -37,7 +37,7 @@ namespace _Scripts.Root
 
         public override void UpdatePhysicsState()
         {
-            _ballStateManager.UpdatePhysics();
+            _ballFacade.UpdatePhysics();
             foreach (var pongBatMovementHandler in _pongBatMovementHandlers)
             {
                 pongBatMovementHandler.UpdatePhysics();
@@ -58,11 +58,11 @@ namespace _Scripts.Root
 
             if (Input.GetButtonDown("Fire1"))
             {
-                if (_ballStateManager.CurrentState is BallStateWaitingForStart)
+                if (_ballFacade.CurrentState is BallStateWaitingForStart)
                 {
                     TEST_LaunchBall();
                 }
-                else if (_ballStateManager.CurrentState is BallStateInPlayerHole)
+                else if (_ballFacade.CurrentState is BallStateInPlayerHole)
                 {
                     TEST_RestartBall();
                 }
@@ -77,12 +77,12 @@ namespace _Scripts.Root
 
         private void TEST_LaunchBall()
         {
-            _ballStateManager.ChangeStateTo<BallStateMoving>();
+            _ballFacade.ChangeStateTo<BallStateMoving>();
         }
 
         private void TEST_RestartBall()
         {
-            _ballStateManager.ChangeStateTo<BallStateWaitingForStart>();
+            _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
     }
 }
