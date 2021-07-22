@@ -185,7 +185,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6266829200093913083, guid: 362b5fb91e0ae3b408e71ce35ec1897e, type: 3}
   m_PrefabInstance: {fileID: 6266829200282392886}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1771806312}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c048559db7d04981a495d7b9c6afb72f, type: 3}
@@ -490,7 +490,6 @@ GameObject:
   - component: {fileID: 1081307709}
   - component: {fileID: 1081307708}
   - component: {fileID: 1081307710}
-  - component: {fileID: 1081307711}
   - component: {fileID: 1081307712}
   m_Layer: 0
   m_Name: SceneContext
@@ -512,12 +511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
-  - {fileID: 11400000, guid: 1ea12c7dd36e2cf4581756c33ae5a2aa, type: 2}
+  - {fileID: 11400000, guid: 031a13e642ccd23429a2cc9dc59b3dfa, type: 2}
   - {fileID: 11400000, guid: b5d3070ca61950e45aa6906b7f890476, type: 2}
   - {fileID: 11400000, guid: 8d8e2de6e00d89f4ab632ddf03000a7d, type: 2}
   _monoInstallers:
   - {fileID: 1081307710}
-  - {fileID: 1081307711}
   - {fileID: 1081307712}
   _installerPrefabs: []
   _autoRun: 1
@@ -562,19 +560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ec3a59cc84e4345bb7d161bfc253d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1081307711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081307707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3177a0b4763a415d89d6b1505b32be6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ballView: {fileID: 222561997}
 --- !u!114 &1081307712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +573,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundClipPrefab: {fileID: 2629966946841506148, guid: dd383ed28f801014bad3fbcd030f08b1, type: 3}
+--- !u!1 &1771806312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6266829200093913082, guid: 362b5fb91e0ae3b408e71ce35ec1897e, type: 3}
+  m_PrefabInstance: {fileID: 6266829200282392886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1771806313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771806312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 1ea12c7dd36e2cf4581756c33ae5a2aa, type: 2}
+  _monoInstallers:
+  - {fileID: 1771806314}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &1771806314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771806312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3177a0b4763a415d89d6b1505b32be6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballView: {fileID: 222561997}
+--- !u!114 &1771806315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771806312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d96799dad4c6c957382b2b0670618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1771806316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771806312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1771806315}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!1001 &2885995737701636008
 PrefabInstance:
   m_ObjectHideFlags: 0
