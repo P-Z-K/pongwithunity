@@ -513,7 +513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 1ea12c7dd36e2cf4581756c33ae5a2aa, type: 2}
-  - {fileID: 11400000, guid: 031a13e642ccd23429a2cc9dc59b3dfa, type: 2}
   - {fileID: 11400000, guid: b5d3070ca61950e45aa6906b7f890476, type: 2}
   - {fileID: 11400000, guid: 8d8e2de6e00d89f4ab632ddf03000a7d, type: 2}
   _monoInstallers:
@@ -644,10 +643,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTwo
       objectReference: {fileID: 0}
-    - target: {fileID: 5067625778821691822, guid: f3a7c56aa41d5504cab7363b7f24616f, type: 3}
-      propertyPath: m_TagString
-      value: PlayerPongBat
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a7c56aa41d5504cab7363b7f24616f, type: 3}
 --- !u!1001 &6266829200282392886
@@ -717,10 +712,6 @@ PrefabInstance:
     - target: {fileID: 3993493234998859731, guid: 90eebf3e3aa3ab448b35282ea78d421c, type: 3}
       propertyPath: m_Name
       value: PlayerOne
-      objectReference: {fileID: 0}
-    - target: {fileID: 3993493234998859731, guid: 90eebf3e3aa3ab448b35282ea78d421c, type: 3}
-      propertyPath: m_TagString
-      value: PlayerPongBat
       objectReference: {fileID: 0}
     - target: {fileID: 3993493234998859734, guid: 90eebf3e3aa3ab448b35282ea78d421c, type: 3}
       propertyPath: m_RootOrder
