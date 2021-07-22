@@ -4,7 +4,7 @@ using Zenject;
 
 namespace _Scripts.Ball
 {
-    public class BallFacade : MonoBehaviour
+    public class BallFacade : MonoBehaviour, IBallFacadable
     {
         private BallStateManager _ballStateManager;
 
