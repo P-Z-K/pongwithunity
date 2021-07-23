@@ -6,6 +6,7 @@ namespace _Scripts.Audio
     public class SoundInstaller : MonoInstaller
     {
         [SerializeField] private GameObject _soundClipPrefab;
+        [SerializeField] private Transform _soundsWrapper;
 
         public override void InstallBindings()
         {
@@ -14,7 +15,7 @@ namespace _Scripts.Audio
             Container.BindMemoryPool<SoundEntity, SoundEntityPool>()
                 .WithInitialSize(3)
                 .FromComponentInNewPrefab(_soundClipPrefab)
-                .UnderTransformGroup("Sounds");
+                .UnderTransform(_soundsWrapper);
         }
 
     }
