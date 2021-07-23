@@ -24,14 +24,14 @@ namespace _Scripts.Ball
             _ballStateManager.ChangeStateTo<T>();
         }
 
-        public void Update()
+        public void Tick()
         {
-            _ballStateManager.Update();
+            _ballStateManager.Tick();
         }
         
-        public void UpdatePhysics()
+        public void FixedTick()
         {
-            _ballStateManager.UpdatePhysics();
+            _ballStateManager.FixedTick();
         }
     }
 }

@@ -20,12 +20,12 @@ namespace _Scripts.Root
 
         public void Tick()
         {
-            _currentState?.UpdateState();
+            _currentState?.Tick();
         }
 
         public void FixedTick()
         {
-            _currentState?.UpdatePhysicsState();
+            _currentState?.FixedTick();
         }
 
         public void ChangeStateTo<T>() where T : State<Root>

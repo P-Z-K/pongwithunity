@@ -19,11 +19,11 @@ namespace _Scripts.Ball
             _ballMovement.StopMove();
         }
 
-        public override void UpdateState()
+        public override void Tick()
         {
         }
 
-        public override void UpdatePhysicsState()
+        public override void FixedTick()
         {
         }
 

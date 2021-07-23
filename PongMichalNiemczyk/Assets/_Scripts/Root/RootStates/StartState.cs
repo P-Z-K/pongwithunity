@@ -14,12 +14,12 @@ namespace _Scripts.Root
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Start state");
         }
 
-        public override void UpdateState()
+        public override void Tick()
         {
             TEST_HandleUserInput();
         }
 
-        public override void UpdatePhysicsState()
+        public override void FixedTick()
         {
         }
 

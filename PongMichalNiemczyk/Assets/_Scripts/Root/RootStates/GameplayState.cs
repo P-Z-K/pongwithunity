@@ -27,20 +27,20 @@ namespace _Scripts.Root
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
 
-        public override void UpdateState()
+        public override void Tick()
         {
-            _ballFacade.Update();
-            _soundEntityPooler.Update();
+            _ballFacade.Tick();
+            _soundEntityPooler.Tick();
             
             TEST_HandleUserInput();
         }
 
-        public override void UpdatePhysicsState()
+        public override void FixedTick()
         {
-            _ballFacade.UpdatePhysics();
+            _ballFacade.FixedTick();
             foreach (var pongBatMovementHandler in _pongBatMovementHandlers)
             {
-                pongBatMovementHandler.UpdatePhysics();
+                pongBatMovementHandler.FixedTick();
             }
         }
 

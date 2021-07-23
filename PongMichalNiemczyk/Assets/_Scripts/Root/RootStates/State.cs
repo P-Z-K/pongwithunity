@@ -10,8 +10,8 @@ namespace _Scripts.Root
         }
 
         public abstract void EnterState();
-        public abstract void UpdateState();
-        public abstract void UpdatePhysicsState();
+        public abstract void Tick();
+        public abstract void FixedTick();
         public abstract void ExitState();
     }
 }

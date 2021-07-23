@@ -18,7 +18,7 @@ namespace _Scripts.PongBat
             _pongBatSettings = pongBatSettings;
         }
 
-        public void UpdatePhysics()
+        public void FixedTick()
         {
             MoveHorizontally();
         }

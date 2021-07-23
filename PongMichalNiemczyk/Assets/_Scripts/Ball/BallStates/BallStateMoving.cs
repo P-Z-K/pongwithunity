@@ -36,12 +36,12 @@ namespace _Scripts.Ball
             _ballMovement.StartMove();
         }
 
-        public override void UpdateState()
+        public override void Tick()
         {
             _ballMovement.CheckIfBallMovingProperly();
         }
 
-        public override void UpdatePhysicsState()
+        public override void FixedTick()
         {
         }
 

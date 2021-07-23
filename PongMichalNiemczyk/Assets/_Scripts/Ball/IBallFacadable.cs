@@ -7,7 +7,7 @@ namespace _Scripts.Ball
         public State<BallStateManager> CurrentState { get; }
 
         public void ChangeStateTo<T>() where T : State<BallStateManager>;
-        public void Update();
-        public void UpdatePhysics();
+        public void Tick();
+        public void FixedTick();
     }
 }

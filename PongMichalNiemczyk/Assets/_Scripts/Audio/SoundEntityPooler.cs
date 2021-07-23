@@ -30,7 +30,7 @@ namespace _Scripts.Audio
             _signalBus.Subscribe<BallHitPongBatSignal>(x => Play(Sound.PongBatHit, x.BallPosition));
         }
 
-        public void Update()
+        public void Tick()
         {
             foreach (var soundEntity in _soundEntities.ToList())
             {

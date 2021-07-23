@@ -14,14 +14,14 @@ namespace _Scripts.Ball
             _diContainer = diContainer;
         }
 
-        public void Update()
+        public void Tick()
         {
-            CurrentState?.UpdateState();
+            CurrentState?.Tick();
         }
 
-        public void UpdatePhysics()
+        public void FixedTick()
         {
-            CurrentState?.UpdatePhysicsState();
+            CurrentState?.FixedTick();
         }
 
         public void ChangeStateTo<T>() where T : State<BallStateManager>
