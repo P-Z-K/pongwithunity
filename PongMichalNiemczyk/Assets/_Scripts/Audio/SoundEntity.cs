@@ -9,24 +9,19 @@ namespace _Scripts.Audio
     {
         [SerializeField] private AudioSource _audioSource;
 
-        private TagsSettings _tagsSettings;
-        private Camera _mainCamera;
+        private CameraRefHolder _cameraRefHolder;
 
         [Inject]
-        public void Construct(TagsSettings tagsSettings)
+        public void Construct(CameraRefHolder cameraRefHolder)
         {
-            _tagsSettings = tagsSettings;
-        }
+            _cameraRefHolder = cameraRefHolder;
 
-        private void Awake()
-        {
-            _mainCamera = GameObject.FindWithTag(_tagsSettings.MainCameraTag).GetComponent<Camera>();
             SetUpZValue();
         }
 
         private void SetUpZValue()
         {
-            Vector3 camPosition = _mainCamera.transform.position;
+            Vector3 camPosition = _cameraRefHolder.MainCamera.transform.position;
             Vector3 soundPosition = gameObject.transform.position;
             soundPosition.Set(soundPosition.x, soundPosition.y, camPosition.z);
         }
@@ -61,7 +56,5 @@ namespace _Scripts.Audio
             soundPosition.Set(newPosition.x, newPosition.y, soundPosition.z);
             Clip = audioClip;
         }
-        
-
     }
 }
