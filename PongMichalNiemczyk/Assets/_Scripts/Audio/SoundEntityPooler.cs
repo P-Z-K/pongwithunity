@@ -10,12 +10,12 @@ namespace _Scripts.Audio
     {
         [Inject] private readonly List<SoundEntity> _soundEntities = new List<SoundEntity>();
         
-        private readonly SoundEntity.Pool _soundEntityPool;
+        private readonly SoundEntityPool _soundEntityPool;
         private readonly SoundSettings _soundSettings;
         private readonly SignalBus _signalBus;
 
 
-        public SoundEntityPooler(SoundEntity.Pool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
+        public SoundEntityPooler(SoundEntityPool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
         {
             _soundEntityPool = soundEntityPool;
             _soundSettings = soundSettings;

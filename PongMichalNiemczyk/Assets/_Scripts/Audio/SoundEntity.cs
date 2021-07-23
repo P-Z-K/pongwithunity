@@ -48,34 +48,20 @@ namespace _Scripts.Audio
             get => _audioSource.isPlaying;
         }
 
-        private void Play()
+        public void Play()
         {
             Active = true;
             _audioSource.Play();
         }
 
 
-        private void SetUpProperties(AudioClip audioClip, Vector3 newPosition)
+        public void SetUpProperties(AudioClip audioClip, Vector3 newPosition)
         {
             Vector3 soundPosition = transform.position;
             soundPosition.Set(newPosition.x, newPosition.y, soundPosition.z);
             Clip = audioClip;
         }
         
-        public class Pool : MonoMemoryPool<AudioClip, Vector3, SoundEntity>
-        {
-            protected override void Reinitialize(AudioClip audioClip, Vector3 position, SoundEntity item)
-            {
-                item.SetUpProperties(audioClip, position);
-                item.Play();
-            }
-
-            protected override void OnDespawned(SoundEntity item)
-            {
-                item.Active = false;
-                item.SetUpProperties(null, Vector3.zero);
-            }
-        }
 
     }
 }

@@ -11,7 +11,7 @@ namespace _Scripts.Audio
         {
             Container.Bind<SoundEntityPooler>().AsSingle();
 
-            Container.BindMemoryPool<SoundEntity, SoundEntity.Pool>()
+            Container.BindMemoryPool<SoundEntity, SoundEntityPool>()
                 .WithInitialSize(3)
                 .FromComponentInNewPrefab(_soundClipPrefab)
                 .UnderTransformGroup("Sounds");
