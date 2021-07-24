@@ -11,7 +11,7 @@ namespace _Scripts
 
         public float HorizontalMove { get; private set; }
 
-        private void Update()
+        public void Tick()
         {
             HorizontalMove = 0f;
 
