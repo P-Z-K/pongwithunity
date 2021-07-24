@@ -9,10 +9,10 @@ namespace _Scripts.Root
 {
     public class GameplayState : State<Root>
     {
-        [Inject] private List<PongBatMovementHandler> _pongBatMovementHandlers = new List<PongBatMovementHandler>();
+        [Inject] private List<PongBatFacade> _pongBatFacades = new List<PongBatFacade>();
         
         private readonly IBallFacadable _ballFacade;
-        private SoundEntityPooler _soundEntityPooler;
+        private readonly SoundEntityPooler _soundEntityPooler;
 
         public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, IBallFacadable ballFacade) 
             : base(owner)
@@ -29,8 +29,13 @@ namespace _Scripts.Root
 
         public override void Tick()
         {
+            foreach (var pongBatFacade in _pongBatFacades)
+            {
+                pongBatFacade.Tick();
+            }
             _ballFacade.Tick();
             _soundEntityPooler.Tick();
+            
             
             TEST_HandleUserInput();
         }
@@ -38,9 +43,9 @@ namespace _Scripts.Root
         public override void FixedTick()
         {
             _ballFacade.FixedTick();
-            foreach (var pongBatMovementHandler in _pongBatMovementHandlers)
+            foreach (var pongBatFacade in _pongBatFacades)
             {
-                pongBatMovementHandler.FixedTick();
+                pongBatFacade.FixedTick();
             }
         }
 
