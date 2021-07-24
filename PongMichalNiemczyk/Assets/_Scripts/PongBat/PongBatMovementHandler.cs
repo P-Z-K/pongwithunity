@@ -3,19 +3,17 @@ using Zenject;
 
 namespace _Scripts.PongBat
 {
-    public class PongBatMovementHandler : MonoBehaviour
+    public class PongBatMovementHandler
     {
-        private PongBatView _pongBatView;
-        private PongBatSettings _pongBatSettings;
-        private InputManager _inputManager;
+        private readonly PongBatView _pongBatView;
+        private readonly PongBatSettings _pongBatSettings;
+        private readonly InputManager _inputManager;
 
-        [Inject]
-        public void Construct(PongBatView pongBatView, InputManager inputManager,
-            PongBatSettings pongBatSettings)
+        public PongBatMovementHandler(PongBatView pongBatView, PongBatSettings pongBatSettings, InputManager inputManager)
         {
             _pongBatView = pongBatView;
-            _inputManager = inputManager;
             _pongBatSettings = pongBatSettings;
+            _inputManager = inputManager;
         }
 
         public void FixedTick()

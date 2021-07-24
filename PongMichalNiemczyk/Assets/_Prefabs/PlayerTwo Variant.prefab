@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 2885995737899588587}
     - target: {fileID: 7953021723612147288, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
       propertyPath: m_Name
-      value: PlayerTwo
+      value: PlayerTwo Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7953021723612147288, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
       propertyPath: m_TagString
@@ -93,6 +93,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1836842926, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
+    - {fileID: 4514914248435549390, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
+    - {fileID: 2587557228055724099, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa5d434bd3bcc2d409c88d555418602d, type: 3}
 --- !u!114 &2885995737899588587 stripped
 MonoBehaviour:

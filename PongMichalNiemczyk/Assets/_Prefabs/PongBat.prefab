@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8801398227994182711}
   - component: {fileID: 7083008253015031345}
-  - component: {fileID: 4514914248435549390}
-  - component: {fileID: 2587557228055724099}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -45,37 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6941f27cce564cd2a3906fdbee2a4355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pongBatView: {fileID: 0}
---- !u!114 &4514914248435549390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2503192919640048169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df74b0699d7f4523bc71d14d79e61462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2587557228055724099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2503192919640048169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 4514914248435549390}
-  _identifier: 
-  _useSceneContext: 1
-  _context: {fileID: 0}
-  _bindType: 0
+  _pongBatView: {fileID: 995183645}
 --- !u!1 &3987270628120081598
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973d18d0b74449d29c40ded73c3f424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputManager: {fileID: 0}
 --- !u!114 &2756952055027028876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +116,8 @@ GameObject:
   - component: {fileID: 7953021723612147295}
   - component: {fileID: 995183645}
   - component: {fileID: 1836842925}
+  - component: {fileID: 1920330695847826492}
+  - component: {fileID: -632633934432814288}
   m_Layer: 0
   m_Name: PongBat
   m_TagString: Untagged
@@ -304,3 +273,33 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
+--- !u!114 &1920330695847826492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: -632633934432814288}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
+--- !u!114 &-632633934432814288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953021723612147288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c524d2c309946d89c641e6668142cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
