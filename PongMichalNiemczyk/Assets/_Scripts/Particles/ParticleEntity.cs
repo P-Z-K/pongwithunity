@@ -1,10 +1,21 @@
 using UnityEngine;
+using Zenject;
 
 namespace _Scripts.Particles
 {
-    public class ParticleEntity : MonoBehaviour
+    public class ParticleEntity<T> : MonoBehaviour, IParticleEntity
+        where T : IMemoryPool
     {
-        [SerializeField] protected ParticleSystem _particleSystem;
+        [SerializeField] private ParticleSystem _particleSystem;
+
+        private T _pool;
+
+        [Inject]
+        public void Construct(T pool)
+        {
+            _pool = pool;
+        }
+
         public Vector3 Position
         {
             get => transform.position;
@@ -27,7 +38,7 @@ namespace _Scripts.Particles
         {
             if (!_particleSystem.isPlaying)
             {
-                // Return object to the pool
+                _pool.Despawn(this);
             }
         }
     }
