@@ -8,6 +8,6 @@ namespace _Scripts.Particles
     {
         public GameObject _wallHitParticle;
         public GameObject _pongBatHitParticle;
-        public GameObject _ballFallPlayerHoleParticle;
+        public GameObject _ballFallInPlayerHoleParticle;
     }
 }

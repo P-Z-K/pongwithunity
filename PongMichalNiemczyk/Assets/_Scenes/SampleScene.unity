@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 1081307710}
   - component: {fileID: 1081307712}
   - component: {fileID: 1081307711}
+  - component: {fileID: 1081307713}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -578,10 +579,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 031a13e642ccd23429a2cc9dc59b3dfa, type: 2}
   - {fileID: 11400000, guid: b5d3070ca61950e45aa6906b7f890476, type: 2}
   - {fileID: 11400000, guid: 8d8e2de6e00d89f4ab632ddf03000a7d, type: 2}
+  - {fileID: 11400000, guid: a846eb46eccc0cc478270fa7c3436695, type: 2}
   _monoInstallers:
   - {fileID: 1081307710}
   - {fileID: 1081307712}
   - {fileID: 1081307711}
+  - {fileID: 1081307713}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -652,6 +655,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundClipPrefab: {fileID: 2629966946841506148, guid: dd383ed28f801014bad3fbcd030f08b1, type: 3}
   _soundsWrapper: {fileID: 557209111}
+--- !u!114 &1081307713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081307707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e7e2e8a4a842dfbfecb85dd1ffc5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pongBatHitParticlesWrapper: {fileID: 1382171844}
+  _wallHitParticlesWrapper: {fileID: 853801799}
+  _ballFallInPlayerHoleParticlesWrapper: {fileID: 1953683040}
 --- !u!1 &1366189179
 GameObject:
   m_ObjectHideFlags: 0

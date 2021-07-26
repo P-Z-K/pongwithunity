@@ -39,7 +39,7 @@ namespace _Scripts.Particles
 
         private void TEST_PlayPongBatHitParticle(BallHitPongBatSignal obj)
         {
-            throw new System.NotImplementedException();
+            _pongBatHitParticleEntityPool.Spawn(obj.BallPosition);
         }
 
         private void TEST_PlayWallHitParticle(BallHitWallSignal obj)

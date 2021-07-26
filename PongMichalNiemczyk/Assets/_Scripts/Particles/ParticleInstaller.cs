@@ -1,4 +1,5 @@
 using _Scripts.Particles.ParticleTypes;
+using _Scripts.Particles.ParticleTypes.BallParticle;
 using _Scripts.Particles.ParticleTypes.PongBatParticle;
 using UnityEngine;
 using Zenject;
@@ -11,6 +12,7 @@ namespace _Scripts.Particles
 
         [SerializeField] private Transform _pongBatHitParticlesWrapper;
         [SerializeField] private Transform _wallHitParticlesWrapper;
+        [SerializeField] private Transform _ballFallInPlayerHoleParticlesWrapper;
 
         [Inject]
         public void Construct(ParticleSettings particleSettings)
@@ -31,6 +33,11 @@ namespace _Scripts.Particles
                 .WithInitialSize(4)
                 .FromComponentInNewPrefab(_particleSettings._wallHitParticle)
                 .UnderTransform(_wallHitParticlesWrapper);
+            
+            Container.BindMemoryPool<BallFallIntoPlayerHoleParticleEntity, BallFallIntoPlayerHoleParticleEntityPool>()
+                .WithInitialSize(2)
+                .FromComponentInNewPrefab(_particleSettings._ballFallInPlayerHoleParticle)
+                .UnderTransform(_ballFallInPlayerHoleParticlesWrapper);
         }
     }
 }
