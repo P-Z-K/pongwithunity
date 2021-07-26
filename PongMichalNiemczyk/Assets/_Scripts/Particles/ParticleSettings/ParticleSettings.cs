@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace _Scripts.Particles.ParticleSettings
+namespace _Scripts.Particles
 {
     [Serializable]
     public class ParticleSettings
     {
-        [SerializeField] private GameObject _wallHitParticle;
-        [SerializeField] private GameObject _pongBatHitParticle;
-        [SerializeField] private GameObject _ballFallPlayerHoleParticle;
+        public GameObject _wallHitParticle;
+        public GameObject _pongBatHitParticle;
+        public GameObject _ballFallPlayerHoleParticle;
     }
 }
