@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Particles.ParticleSettings
+namespace _Scripts.Particles
 {
     [CreateAssetMenu(menuName = "Settings/Create Particle Settings")]
     public class ParticleSettingsInstaller : ScriptableObjectInstaller
