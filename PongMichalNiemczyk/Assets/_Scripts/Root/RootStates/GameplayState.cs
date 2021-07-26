@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Scripts.Audio;
 using _Scripts.Ball;
+using _Scripts.Particles;
 using _Scripts.PongBat;
 using UnityEngine;
 using Zenject;
@@ -13,17 +14,23 @@ namespace _Scripts.Root
         
         private readonly IBallFacadable _ballFacade;
         private readonly SoundEntityPooler _soundEntityPooler;
+        private readonly ParticleEntityManager _particleEntityManager;
 
-        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, IBallFacadable ballFacade) 
+        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, 
+            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager) 
             : base(owner)
         {
             _soundEntityPooler = soundEntityPooler;
             _ballFacade = ballFacade;
+            _particleEntityManager = particleEntityManager;
         }
 
         public override void EnterState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
+            
+            _particleEntityManager.SubscribeSignals();
+            
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
 
@@ -52,6 +59,8 @@ namespace _Scripts.Root
         public override void ExitState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Exiting Gameplay state");
+            
+            _particleEntityManager.UnsubscribeSignals();
         }
 
         private void TEST_HandleUserInput()
