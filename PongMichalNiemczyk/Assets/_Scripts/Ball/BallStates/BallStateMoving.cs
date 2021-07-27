@@ -40,14 +40,11 @@ namespace _Scripts.Ball
             
             if (other.gameObject.CompareTag(_tagsSettings.WallTag))
             {
-                Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the wall");
-                
                 _signalBus.Fire(new BallHitWallSignal(_ballView.Position));
                 _ballMovement.AddRandomFactorToDirection();
             }
             else if (other.gameObject.CompareTag(_tagsSettings.PlayerPongBatTag))
             {
-                Debug.Log("<color=lime>[BALL INFO]</color> The Ball hit the pong bat");
                 _signalBus.Fire(new BallHitPongBatSignal(_ballView.Position));
             }
         }
@@ -58,7 +55,6 @@ namespace _Scripts.Ball
             
             if (other.gameObject.CompareTag(_tagsSettings.PlayerHoleTag))
             {
-                Debug.Log("<color=lime>[BALL INFO]</color> The ball fell into the player hole");
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
             }
         }
