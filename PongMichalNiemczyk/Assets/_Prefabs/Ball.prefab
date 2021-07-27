@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 111406102}
+  _spriteRenderer: {fileID: 111406103}
 --- !u!1 &6266829200093913082
 GameObject:
   m_ObjectHideFlags: 0

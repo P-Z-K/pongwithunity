@@ -7,6 +7,7 @@ namespace _Scripts.Ball
     public class BallView : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody2D;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private SignalBus _signalBus;
 
@@ -19,6 +20,11 @@ namespace _Scripts.Ball
         public Rigidbody2D Rigidbody2D
         {
             get => _rigidbody2D;
+        }
+
+        public SpriteRenderer SpriteRenderer
+        {
+            get => _spriteRenderer;
         }
 
         public Vector3 Position

@@ -23,8 +23,14 @@ namespace _Scripts.Ball
         {
             Debug.Log("<color=lime>[BALL STATE]</color> Ball is in player hole...");
             
-            _ballMovement.StopMove();
+            DisableBall();
             _signalBus.Fire(new BallFellIntoPlayerHoleSignal(_ballView.Position));
+        }
+
+        private void DisableBall()
+        {
+            _ballMovement.StopMove();
+            _ballView.SpriteRenderer.enabled = false;
         }
 
         public override void Tick()
