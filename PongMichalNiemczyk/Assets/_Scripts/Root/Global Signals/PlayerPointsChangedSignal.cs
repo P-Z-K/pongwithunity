@@ -4,8 +4,8 @@ namespace _Scripts.Root.Global_Signals
 {
     public class PlayerPointsChangedSignal
     {
-        public int PlayerOnePoints { get; private set; }
-        public int PlayerTwoPoints { get; private set; }
+        public int PlayerOnePoints { get;}
+        public int PlayerTwoPoints { get;}
 
         public PlayerPointsChangedSignal(int playerOnePoints, int playerTwoPoints)
         {

@@ -25,12 +25,6 @@ namespace _Scripts.Root
             _menuManager.QuitButton.onClick.AddListener(QuitGame);
         }
 
-        private void UnsubscribeButtonEvents()
-        {
-            _menuManager.StartButton.onClick.RemoveListener(TEST_LoadGameplayState);
-            _menuManager.QuitButton.onClick.RemoveListener(QuitGame);
-        }
-
         private void QuitGame()
         {
             Debug.Log("Quit game");
@@ -49,6 +43,12 @@ namespace _Scripts.Root
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Exiting Start state");
             UnsubscribeButtonEvents();
+        }
+        
+        private void UnsubscribeButtonEvents()
+        {
+            _menuManager.StartButton.onClick.RemoveListener(TEST_LoadGameplayState);
+            _menuManager.QuitButton.onClick.RemoveListener(QuitGame);
         }
 
         private void TEST_HandleUserInput()

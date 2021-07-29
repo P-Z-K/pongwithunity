@@ -7,6 +7,6 @@ namespace _Scripts.Root.GameSettings
     [Serializable]
     public class GameSettings 
     {
-        [Range(0, 20)] public int _pointsToWin;
+        [Range(1, 20)] public int _pointsToWin;
     }
 }

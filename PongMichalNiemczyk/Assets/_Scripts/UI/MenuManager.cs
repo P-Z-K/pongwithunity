@@ -10,6 +10,7 @@ namespace _Scripts.UI
         GameplayMenu,
         GameOverMenu,
     }
+
     public class MenuManager
     {
         private readonly StartMenuView _startMenuView;
@@ -18,7 +19,7 @@ namespace _Scripts.UI
 
         private IMenu _currentMenu;
 
-        public MenuManager(StartMenuView startMenuView, GameplayMenuView gameplayMenuView, 
+        public MenuManager(StartMenuView startMenuView, GameplayMenuView gameplayMenuView,
             GameOverMenuView gameOverMenuView)
         {
             _startMenuView = startMenuView;
@@ -28,10 +29,7 @@ namespace _Scripts.UI
 
         public Button StartButton
         {
-            get
-            {
-                return _currentMenu.MenuType == _startMenuView.MenuType ? _startMenuView.StartButton : null;
-            }
+            get { return _currentMenu.MenuType == _startMenuView.MenuType ? _startMenuView.StartButton : null; }
         }
 
         public Button QuitButton
@@ -70,7 +68,7 @@ namespace _Scripts.UI
 
             IMenu newMenu = GetMenu(newMenuType);
             newMenu.IsVisible = true;
-            
+
             _currentMenu = newMenu;
         }
 

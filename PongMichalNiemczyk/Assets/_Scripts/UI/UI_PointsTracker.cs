@@ -6,8 +6,8 @@ namespace _Scripts.UI
 {
     public class UI_PointsTracker
     {
-        private GameplayMenuView _gameplayMenuView;
-        private SignalBus _signalBus;
+        private readonly GameplayMenuView _gameplayMenuView;
+        private readonly SignalBus _signalBus;
 
         public UI_PointsTracker(GameplayMenuView gameplayMenuView, SignalBus signalBus)
         {
