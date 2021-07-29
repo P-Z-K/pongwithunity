@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36180534}
   - component: {fileID: 36180535}
+  - component: {fileID: 36180536}
   m_Layer: 0
   m_Name: BottomPlayerHole
   m_TagString: PlayerHole
@@ -180,6 +181,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 23.3, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &36180536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36180533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941a15ea518e4ded9e30bb6f1c6cf76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170188132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032678156}
   - component: {fileID: 1032678157}
+  - component: {fileID: 1032678158}
   m_Layer: 0
   m_Name: TopPlayerHole
   m_TagString: PlayerHole
@@ -1465,6 +1479,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 23.3, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1032678158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032678155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5db530b7f848fb900641f6aa14d381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1081307707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1506,7 @@ GameObject:
   - component: {fileID: 1081307711}
   - component: {fileID: 1081307713}
   - component: {fileID: 1081307714}
+  - component: {fileID: 1081307715}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1510,6 +1537,7 @@ MonoBehaviour:
   - {fileID: 1081307711}
   - {fileID: 1081307713}
   - {fileID: 1081307714}
+  - {fileID: 1081307715}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1610,6 +1638,20 @@ MonoBehaviour:
   _startMenuView: {fileID: 860417018}
   _gameplayMenuView: {fileID: 170188136}
   _gameOverMenuView: {fileID: 684259309}
+--- !u!114 &1081307715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081307707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67dd823e138438fb5d42be667b587cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerOne: {fileID: 36180536}
+  _playerTwo: {fileID: 1032678158}
 --- !u!1 &1366189179
 GameObject:
   m_ObjectHideFlags: 0
