@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 1081307712}
   - component: {fileID: 1081307711}
   - component: {fileID: 1081307713}
+  - component: {fileID: 1081307714}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1508,6 +1509,7 @@ MonoBehaviour:
   - {fileID: 1081307712}
   - {fileID: 1081307711}
   - {fileID: 1081307713}
+  - {fileID: 1081307714}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1593,6 +1595,21 @@ MonoBehaviour:
   _pongBatHitParticlesWrapper: {fileID: 1382171844}
   _wallHitParticlesWrapper: {fileID: 853801799}
   _ballFallInPlayerHoleParticlesWrapper: {fileID: 1953683040}
+--- !u!114 &1081307714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081307707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4b026e75f452499e5718366aa035e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startMenuView: {fileID: 860417018}
+  _gameplayMenuView: {fileID: 170188136}
+  _gameOverMenuView: {fileID: 684259309}
 --- !u!1 &1366189179
 GameObject:
   m_ObjectHideFlags: 0
