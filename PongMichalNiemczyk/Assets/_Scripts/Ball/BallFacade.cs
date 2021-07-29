@@ -4,7 +4,7 @@ using Zenject;
 
 namespace _Scripts.Ball
 {
-    public class BallFacade : MonoBehaviour, IBallFacadable
+    public class BallFacade : MonoBehaviour, IBallFacade
     {
         private BallStateManager _ballStateManager;
 
@@ -33,5 +33,6 @@ namespace _Scripts.Ball
         {
             _ballStateManager.FixedTick();
         }
+        
     }
 }

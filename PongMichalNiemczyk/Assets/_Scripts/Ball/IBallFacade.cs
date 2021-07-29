@@ -2,7 +2,7 @@ using _Scripts.Root;
 
 namespace _Scripts.Ball
 {
-    public interface IBallFacadable
+    public interface IBallFacade
     {
         public State<BallStateManager> CurrentState { get; }
 

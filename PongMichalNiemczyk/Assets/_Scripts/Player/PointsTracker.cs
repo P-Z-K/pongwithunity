@@ -26,19 +26,12 @@ namespace _Scripts.Players
             Player chosenPlayer = GetPlayerThatShouldGetThePoint(holeThatBallFallInto);
             chosenPlayer.Points++;
 
+            _signalBus.Fire(new PlayerPointsChangedSignal(_playerOne.Points, _playerTwo.Points));
+
             if (chosenPlayer.Points >= _gameSettings._pointsToWin)
             {
                 _signalBus.Fire<PlayerWonSignal>();
             }
-
-            _signalBus.Fire(new PlayerPointsChangedSignal(_playerOne.Points, _playerTwo.Points));
-        }
-
-        public void ResetPoints()
-        {
-            _playerOne.Points = 0;
-            _playerTwo.Points = 0;
-            _signalBus.Fire(new PlayerPointsChangedSignal(_playerOne.Points, _playerTwo.Points));
         }
 
         private Player GetPlayerThatShouldGetThePoint(PlayerHole playerHole)
@@ -50,6 +43,13 @@ namespace _Scripts.Players
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void ResetPoints()
+        {
+            _playerOne.Points = 0;
+            _playerTwo.Points = 0;
+            _signalBus.Fire(new PlayerPointsChangedSignal(_playerOne.Points, _playerTwo.Points));
         }
     }
 }

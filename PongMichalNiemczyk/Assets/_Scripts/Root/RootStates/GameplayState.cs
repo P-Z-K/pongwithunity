@@ -15,7 +15,7 @@ namespace _Scripts.Root
     {
         [Inject] private List<PongBatFacade> _pongBatFacades = new List<PongBatFacade>();
 
-        private readonly IBallFacadable _ballFacade;
+        private readonly IBallFacade _ballFacade;
         private readonly SoundEntityPooler _soundEntityPooler;
         private readonly ParticleEntityManager _particleEntityManager;
 
@@ -25,7 +25,7 @@ namespace _Scripts.Root
         private readonly SignalBus _signalBus;
 
         public GameplayState(Root owner, SoundEntityPooler soundEntityPooler,
-            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager,
+            IBallFacade ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager,
             UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker, SignalBus signalBus)
             : base(owner)
         {
