@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using _Scripts.Audio;
 using _Scripts.Ball;
 using _Scripts.Particles;
+using _Scripts.Players;
 using _Scripts.PongBat;
 using _Scripts.UI;
 using UnityEngine;
@@ -18,15 +19,20 @@ namespace _Scripts.Root
         private readonly ParticleEntityManager _particleEntityManager;
         
         private readonly MenuManager _menuManager;
+        private readonly UI_PointsTracker _uiPointsTracker;
+        private readonly PointsTracker _pointsTracker;
 
         public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, 
-            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager) 
+            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager, 
+            UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker) 
             : base(owner)
         {
             _soundEntityPooler = soundEntityPooler;
             _ballFacade = ballFacade;
             _particleEntityManager = particleEntityManager;
             _menuManager = menuManager;
+            _uiPointsTracker = uiPointsTracker;
+            _pointsTracker = pointsTracker;
         }
 
         public override void EnterState()
@@ -36,6 +42,8 @@ namespace _Scripts.Root
             _menuManager.ChangeMenuTo(MenuType.GameplayMenu);
             
             _particleEntityManager.SubscribeSignals();
+            _uiPointsTracker.SubscribeSignals();
+            _pointsTracker.ResetPoints();
             
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
@@ -67,6 +75,7 @@ namespace _Scripts.Root
             Debug.Log("<color=red>[ROOT STATE]</color> Exiting Gameplay state");
             
             _particleEntityManager.UnsubscribeSignals();
+            _uiPointsTracker.UnsubscribeSignals();
         }
 
         private void TEST_HandleUserInput()

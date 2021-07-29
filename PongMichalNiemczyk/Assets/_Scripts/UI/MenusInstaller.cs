@@ -12,6 +12,7 @@ namespace _Scripts.UI.Menus
         public override void InstallBindings()
         {
             Container.Bind<MenuManager>().AsSingle();
+            Container.Bind<UI_PointsTracker>().AsSingle();
             
             Container.BindInstance(_startMenuView);
             Container.BindInstance(_gameplayMenuView);

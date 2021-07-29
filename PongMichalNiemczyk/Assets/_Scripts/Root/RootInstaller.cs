@@ -1,4 +1,5 @@
 using _Scripts.Ball;
+using _Scripts.Root.Global_Signals;
 using Zenject;
 
 namespace _Scripts.Root
@@ -14,6 +15,7 @@ namespace _Scripts.Root
             Container.DeclareSignal<BallHitWallSignal>();
             Container.DeclareSignal<BallHitPongBatSignal>();
             Container.DeclareSignal<BallFellIntoPlayerHoleSignal>();
+            Container.DeclareSignal<PlayerPointsChangedSignal>();
         }
     }
 }
