@@ -8,6 +8,10 @@ namespace _Scripts.UI.Menus
         [SerializeField] private Button _playAgainButton;
         [SerializeField] private Button _quitButton;
 
+        public MenuType MenuType
+        {
+            get => MenuType.GameOverMenu;
+        }
 
         public bool IsVisible
         {

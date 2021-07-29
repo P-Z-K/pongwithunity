@@ -8,6 +8,11 @@ namespace _Scripts.UI.Menus
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _quitButton;
 
+        public MenuType MenuType
+        {
+            get => MenuType.StartMenu;
+        }
+
         public bool IsVisible
         {
             get => gameObject.activeSelf;

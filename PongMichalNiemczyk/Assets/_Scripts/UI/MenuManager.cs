@@ -1,5 +1,6 @@
 using System;
 using _Scripts.UI.Menus;
+using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
@@ -11,9 +12,9 @@ namespace _Scripts.UI
     }
     public class MenuManager
     {
-        private StartMenuView _startMenuView;
-        private GameplayMenuView _gameplayMenuView;
-        private GameOverMenuView _gameOverMenuView;
+        private readonly StartMenuView _startMenuView;
+        private readonly GameplayMenuView _gameplayMenuView;
+        private readonly GameOverMenuView _gameOverMenuView;
 
         private IMenu _currentMenu;
 
@@ -23,6 +24,40 @@ namespace _Scripts.UI
             _startMenuView = startMenuView;
             _gameplayMenuView = gameplayMenuView;
             _gameOverMenuView = gameOverMenuView;
+        }
+
+        public Button StartButton
+        {
+            get
+            {
+                return _currentMenu.MenuType == _startMenuView.MenuType ? _startMenuView.StartButton : null;
+            }
+        }
+
+        public Button QuitButton
+        {
+            get
+            {
+                if (_currentMenu.MenuType == _startMenuView.MenuType)
+                {
+                    return _startMenuView.QuitButton;
+                }
+
+                if (_currentMenu.MenuType == _gameOverMenuView.MenuType)
+                {
+                    return _gameOverMenuView.QuitButton;
+                }
+
+                return null;
+            }
+        }
+
+        public Button PlayAgainButton
+        {
+            get
+            {
+                return _currentMenu.MenuType == _gameOverMenuView.MenuType ? _gameOverMenuView.PlayAgainButton : null;
+            }
         }
 
 

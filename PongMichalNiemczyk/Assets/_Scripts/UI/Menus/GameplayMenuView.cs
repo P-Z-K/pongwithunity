@@ -8,6 +8,10 @@ namespace _Scripts.UI.Menus
         [SerializeField] private Text _playerOneScoreText;
         [SerializeField] private Text _playerTwoScoreText;
 
+        public MenuType MenuType
+        {
+            get => MenuType.GameplayMenu;
+        }
 
         public bool IsVisible
         {

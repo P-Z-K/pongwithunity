@@ -3,6 +3,7 @@ using _Scripts.Audio;
 using _Scripts.Ball;
 using _Scripts.Particles;
 using _Scripts.PongBat;
+using _Scripts.UI;
 using UnityEngine;
 using Zenject;
 
@@ -15,19 +16,24 @@ namespace _Scripts.Root
         private readonly IBallFacadable _ballFacade;
         private readonly SoundEntityPooler _soundEntityPooler;
         private readonly ParticleEntityManager _particleEntityManager;
+        
+        private readonly MenuManager _menuManager;
 
         public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, 
-            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager) 
+            IBallFacadable ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager) 
             : base(owner)
         {
             _soundEntityPooler = soundEntityPooler;
             _ballFacade = ballFacade;
             _particleEntityManager = particleEntityManager;
+            _menuManager = menuManager;
         }
 
         public override void EnterState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
+            
+            _menuManager.ChangeMenuTo(MenuType.GameplayMenu);
             
             _particleEntityManager.SubscribeSignals();
             
