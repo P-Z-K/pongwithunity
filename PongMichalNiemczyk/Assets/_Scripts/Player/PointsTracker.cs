@@ -14,7 +14,7 @@ namespace _Scripts.Players
             _playerTwo = playerTwo;
         }
 
-        public void DecideWhoGivePointTo(HoleType holeThatBallFallInto)
+        public void DecideWhoGivePointTo(PlayerHole holeThatBallFallInto)
         {
             Player chosenPlayer = GetPlayerThatShouldGetThePoint(holeThatBallFallInto);
             chosenPlayer.AddPoint();
@@ -25,14 +25,12 @@ namespace _Scripts.Players
                 );
         }
 
-        private Player GetPlayerThatShouldGetThePoint(HoleType type)
+        private Player GetPlayerThatShouldGetThePoint(PlayerHole playerHole)
         {
-            switch (type)
+            switch (playerHole.HoleType)
             {
-                case HoleType.PlayerOne:
-                    return _playerTwo;
-                case HoleType.PlayerTwo:
-                    return _playerOne;
+                case HoleType.PlayerOne: return _playerTwo;
+                case HoleType.PlayerTwo: return _playerOne;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

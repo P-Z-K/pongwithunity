@@ -5,15 +5,17 @@ namespace _Scripts.Players
 {
     public class PlayerInstaller : MonoInstaller
     {
-        [SerializeField] private PlayerOne _playerOne;
-        [SerializeField] private PlayerTwo _playerTwo;
+        [SerializeField] private PlayerOneHole _playerOneHole;
+        [SerializeField] private PlayerTwoHole _playerTwoHole;
 
         public override void InstallBindings()
         {
             Container.Bind<PointsTracker>().AsSingle();
+            Container.Bind<PlayerOne>().AsSingle();
+            Container.Bind<PlayerTwo>().AsSingle();
             
-            Container.BindInstance(_playerOne);
-            Container.BindInstance(_playerTwo);
+            Container.BindInstance(_playerOneHole);
+            Container.BindInstance(_playerTwoHole);
         }
     }
 }

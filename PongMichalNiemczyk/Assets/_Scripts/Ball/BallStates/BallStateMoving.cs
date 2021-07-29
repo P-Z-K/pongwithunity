@@ -58,8 +58,12 @@ namespace _Scripts.Ball
             
             if (other.gameObject.CompareTag(_tagsSettings.PlayerHoleTag))
             {
-                Player player = other.GetComponent<Player>();
-                _pointsTracker.DecideWhoGivePointTo(player.HoleType);
+                PlayerHole playerHole = other.GetComponent<PlayerHole>();
+                if (playerHole)
+                {
+                    _pointsTracker.DecideWhoGivePointTo(playerHole);
+                }
+
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
             }
         }

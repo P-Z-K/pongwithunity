@@ -1,12 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 namespace _Scripts.Players
 {
-    public class PlayerOne : Player
+    public class PlayerTwoHole : PlayerHole
     {
         public override HoleType HoleType
         {
-            get => HoleType.PlayerOne;
+            get => HoleType.PlayerTwo;
         }
     }
 }
