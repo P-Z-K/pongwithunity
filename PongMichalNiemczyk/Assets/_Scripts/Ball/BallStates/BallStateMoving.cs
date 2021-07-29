@@ -1,3 +1,4 @@
+using _Scripts.Players;
 using _Scripts.Root;
 using _Scripts.Utils;
 using UnityEngine;
@@ -11,15 +12,17 @@ namespace _Scripts.Ball
         private readonly BallView _ballView;
         private readonly SignalBus _signalBus;
         private readonly TagsSettings _tagsSettings;
+        private readonly PointsTracker _pointsTracker;
 
         public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus, 
-            TagsSettings tagsSettings, BallView ballView)
+            TagsSettings tagsSettings, BallView ballView, PointsTracker pointsTracker)
             : base(owner)
         {
             _ballMovement = ballMovement;
             _signalBus = signalBus;
             _tagsSettings = tagsSettings;
             _ballView = ballView;
+            _pointsTracker = pointsTracker;
         }
 
         private void SubscribeSignals()
@@ -55,6 +58,8 @@ namespace _Scripts.Ball
             
             if (other.gameObject.CompareTag(_tagsSettings.PlayerHoleTag))
             {
+                Player player = other.GetComponent<Player>();
+                _pointsTracker.DecideWhoGivePointTo(player.HoleType);
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
             }
         }
