@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI.Menus
 {
-    public class GameOverMenuView : MonoBehaviour
+    public class GameOverMenuView : MonoBehaviour, IMenu
     {
         [SerializeField] private Button _playAgainButton;
         [SerializeField] private Button _quitButton;
-        
-        private const MenuType _menuType = MenuType.GameOverMenu;
 
-        public MenuType MenuType
+
+        public bool IsVisible
         {
-            get => _menuType;
+            get => gameObject.activeSelf;
+            set => gameObject.SetActive(value);
         }
 
         public Button PlayAgainButton

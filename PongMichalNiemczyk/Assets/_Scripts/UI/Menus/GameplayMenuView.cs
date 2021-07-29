@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI.Menus
 {
-    public class GameplayMenuView : MonoBehaviour
+    public class GameplayMenuView : MonoBehaviour, IMenu
     {
         [SerializeField] private Text _playerOneScoreText;
         [SerializeField] private Text _playerTwoScoreText;
 
-        private const MenuType _menuType = MenuType.GameplayMenu;
 
-        public MenuType MenuType
+        public bool IsVisible
         {
-            get => _menuType;
+            get => gameObject.activeSelf;
+            set => gameObject.SetActive(value);
         }
 
         public Text PlayerOneScoreText

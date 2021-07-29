@@ -3,16 +3,15 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI.Menus
 {
-    public class StartMenuView : MonoBehaviour
+    public class StartMenuView : MonoBehaviour, IMenu
     {
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _quitButton;
 
-        private const MenuType _menuType = MenuType.StartMenu;
-
-        public MenuType MenuType
+        public bool IsVisible
         {
-            get => _menuType;
+            get => gameObject.activeSelf;
+            set => gameObject.SetActive(value);
         }
 
         public Button StartButton
