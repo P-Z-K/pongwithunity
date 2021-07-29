@@ -4,6 +4,7 @@ using _Scripts.Ball;
 using _Scripts.Particles;
 using _Scripts.Players;
 using _Scripts.PongBat;
+using _Scripts.Root.Global_Signals;
 using _Scripts.UI;
 using UnityEngine;
 using Zenject;
@@ -21,10 +22,11 @@ namespace _Scripts.Root
         private readonly MenuManager _menuManager;
         private readonly UI_PointsTracker _uiPointsTracker;
         private readonly PointsTracker _pointsTracker;
+        private readonly SignalBus _signalBus;
 
         public GameplayState(Root owner, SoundEntityPooler soundEntityPooler, 
             IBallFacadable ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager, 
-            UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker) 
+            UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker, SignalBus signalBus) 
             : base(owner)
         {
             _soundEntityPooler = soundEntityPooler;
@@ -33,6 +35,7 @@ namespace _Scripts.Root
             _menuManager = menuManager;
             _uiPointsTracker = uiPointsTracker;
             _pointsTracker = pointsTracker;
+            _signalBus = signalBus;
         }
 
         public override void EnterState()
@@ -41,11 +44,22 @@ namespace _Scripts.Root
             
             _menuManager.ChangeMenuTo(MenuType.GameplayMenu);
             
+            SubscribeSignals();
             _particleEntityManager.SubscribeSignals();
             _uiPointsTracker.SubscribeSignals();
             _pointsTracker.ResetPoints();
             
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
+        }
+
+        private void SubscribeSignals()
+        {
+            _signalBus.Subscribe<PlayerWonSignal>(TEST_LoadGameOverState);
+        }
+
+        private void UnsubscribeSignals()
+        {
+            _signalBus.Unsubscribe<PlayerWonSignal>(TEST_LoadGameOverState);
         }
 
         public override void Tick()
@@ -76,6 +90,7 @@ namespace _Scripts.Root
             
             _particleEntityManager.UnsubscribeSignals();
             _uiPointsTracker.UnsubscribeSignals();
+            UnsubscribeSignals();
         }
 
         private void TEST_HandleUserInput()

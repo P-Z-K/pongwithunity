@@ -16,6 +16,7 @@ namespace _Scripts.Root
             Container.DeclareSignal<BallHitPongBatSignal>();
             Container.DeclareSignal<BallFellIntoPlayerHoleSignal>();
             Container.DeclareSignal<PlayerPointsChangedSignal>();
+            Container.DeclareSignal<PlayerWonSignal>();
         }
     }
 }
