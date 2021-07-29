@@ -8,6 +8,13 @@ namespace _Scripts.UI.Menus
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _quitButton;
 
+        private const MenuType _menuType = MenuType.StartMenu;
+
+        public MenuType MenuType
+        {
+            get => _menuType;
+        }
+
         public Button StartButton
         {
             get => _startButton;

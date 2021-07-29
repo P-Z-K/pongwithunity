@@ -7,6 +7,13 @@ namespace _Scripts.UI.Menus
     {
         [SerializeField] private Button _playAgainButton;
         [SerializeField] private Button _quitButton;
+        
+        private const MenuType _menuType = MenuType.GameOverMenu;
+
+        public MenuType MenuType
+        {
+            get => _menuType;
+        }
 
         public Button PlayAgainButton
         {
