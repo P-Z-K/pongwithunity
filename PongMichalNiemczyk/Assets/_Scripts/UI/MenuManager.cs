@@ -1,6 +1,5 @@
 using System;
 using _Scripts.UI.Menus;
-using UnityEngine;
 
 namespace _Scripts.UI
 {
@@ -10,13 +9,22 @@ namespace _Scripts.UI
         GameplayMenu,
         GameOverMenu,
     }
-    public class MenuManager : MonoBehaviour
+    public class MenuManager
     {
-        [SerializeField] private StartMenuView _startMenuView;
-        [SerializeField] private GameplayMenuView _gameplayMenuView;
-        [SerializeField] private GameOverMenuView _gameOverMenuView;
+        private StartMenuView _startMenuView;
+        private GameplayMenuView _gameplayMenuView;
+        private GameOverMenuView _gameOverMenuView;
 
         private IMenu _currentMenu;
+
+        public MenuManager(StartMenuView startMenuView, GameplayMenuView gameplayMenuView, 
+            GameOverMenuView gameOverMenuView)
+        {
+            _startMenuView = startMenuView;
+            _gameplayMenuView = gameplayMenuView;
+            _gameOverMenuView = gameOverMenuView;
+        }
+
 
         public void ChangeMenuTo(MenuType newMenuType)
         {
