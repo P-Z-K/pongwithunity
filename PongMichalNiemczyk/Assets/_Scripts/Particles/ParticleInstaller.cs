@@ -8,17 +8,11 @@ namespace _Scripts.Particles
 {
     public class ParticleInstaller : MonoInstaller
     {
-        private ParticleSettings _particleSettings;
+        [SerializeField] private ParticleSettings _particleSettings;
 
         [SerializeField] private Transform _pongBatHitParticlesWrapper;
         [SerializeField] private Transform _wallHitParticlesWrapper;
         [SerializeField] private Transform _ballFallInPlayerHoleParticlesWrapper;
-
-        [Inject]
-        public void Construct(ParticleSettings particleSettings)
-        {
-            _particleSettings = particleSettings;
-        }
 
         public override void InstallBindings()
         {

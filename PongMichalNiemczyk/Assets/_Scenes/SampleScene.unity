@@ -1530,7 +1530,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 031a13e642ccd23429a2cc9dc59b3dfa, type: 2}
   - {fileID: 11400000, guid: b5d3070ca61950e45aa6906b7f890476, type: 2}
   - {fileID: 11400000, guid: 8d8e2de6e00d89f4ab632ddf03000a7d, type: 2}
-  - {fileID: 11400000, guid: a846eb46eccc0cc478270fa7c3436695, type: 2}
   - {fileID: 11400000, guid: fbc6a9c55a5601645ac1725466041b41, type: 2}
   _monoInstallers:
   - {fileID: 1081307710}
@@ -1621,6 +1620,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e7e2e8a4a842dfbfecb85dd1ffc5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particleSettings:
+    _wallHitParticle: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
+    _pongBatHitParticle: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
+    _ballFallInPlayerHoleParticle: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
   _pongBatHitParticlesWrapper: {fileID: 1382171844}
   _wallHitParticlesWrapper: {fileID: 853801799}
   _ballFallInPlayerHoleParticlesWrapper: {fileID: 1953683040}
