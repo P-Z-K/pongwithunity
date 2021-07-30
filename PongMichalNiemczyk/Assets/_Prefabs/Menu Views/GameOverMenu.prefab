@@ -199,7 +199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4618987615815739989}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4618987616732291280}
+        m_TargetAssemblyTypeName: _Scripts.UI.Menus.GameOverMenuView, Assembly-CSharp
+        m_MethodName: OnPlayAgainButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4618987615883846909
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +411,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4618987616088333192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4618987616732291280}
+        m_TargetAssemblyTypeName: _Scripts.UI.Menus.GameOverMenuView, Assembly-CSharp
+        m_MethodName: OnQuitButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4618987616732291284
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,8 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd61ad59bedd4c848ad426bc8657f798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playAgainButton: {fileID: 4618987615815739994}
-  _quitButton: {fileID: 4618987616088333193}
 --- !u!114 &-42053378426234029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,4 +532,4 @@ MonoBehaviour:
   _identifier: 
   _useSceneContext: 1
   _context: {fileID: 0}
-  _bindType: 0
+  _bindType: 2
