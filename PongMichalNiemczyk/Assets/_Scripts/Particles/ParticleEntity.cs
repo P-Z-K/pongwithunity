@@ -4,7 +4,7 @@ using Zenject;
 namespace _Scripts.Particles
 {
     public class ParticleEntity<T> : MonoBehaviour, IParticleEntity
-        where T : IMemoryPool
+    where T : IMemoryPool
     {
         [SerializeField] private ParticleSystem _particleSystem;
 
@@ -15,7 +15,6 @@ namespace _Scripts.Particles
         {
             _pool = pool;
         }
-
         public Vector3 Position
         {
             get => transform.position;
@@ -28,18 +27,20 @@ namespace _Scripts.Particles
             _particleSystem.Play();
         }
 
+        public void Despawn()
+        {
+            _pool.Despawn(this);
+        }
+
         public bool Active
         {
             get => gameObject.activeSelf;
             set => gameObject.SetActive(value);
         }
 
-        private void Update()
+        public bool IsPlaying
         {
-            if (!_particleSystem.isPlaying)
-            {
-                _pool.Despawn(this);
-            }
+            get => _particleSystem.isPlaying;
         }
     }
 }

@@ -66,6 +66,7 @@ namespace _Scripts.Root
 
             _ballFacade.Tick();
             _soundEntityPooler.Tick();
+            _particleEntityManager.Tick();
 
 
             TEST_HandleUserInput();
