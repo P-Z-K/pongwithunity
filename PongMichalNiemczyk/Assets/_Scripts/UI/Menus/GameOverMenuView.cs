@@ -13,10 +13,14 @@ namespace _Scripts.UI.Menus
             get => MenuType.GameOverMenu;
         }
 
-        public bool IsVisible
+        public void Show()
         {
-            get => gameObject.activeSelf;
-            set => gameObject.SetActive(value);
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
 
         public Button PlayAgainButton

@@ -63,11 +63,11 @@ namespace _Scripts.UI
         {
             if (_currentMenu != null)
             {
-                _currentMenu.IsVisible = false;
+                _currentMenu.Hide();
             }
 
             IMenu newMenu = GetMenu(newMenuType);
-            newMenu.IsVisible = true;
+            newMenu.Show();
 
             _currentMenu = newMenu;
         }
