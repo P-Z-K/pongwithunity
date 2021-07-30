@@ -5,22 +5,22 @@ namespace _Scripts.UI
 {
     public class GameOverMenuViewInput : MonoBehaviour
     {
-        private IGameOverMenuViewInput _gameOverMenuViewInput;
+        private IGameOverMenuViewInputListener _gameOverMenuViewInputListener;
 
         [Inject]
-        public void Construct(IGameOverMenuViewInput gameOverMenuViewInput)
+        public void Construct(IGameOverMenuViewInputListener gameOverMenuViewInputListener)
         {
-            _gameOverMenuViewInput = gameOverMenuViewInput;
+            _gameOverMenuViewInputListener = gameOverMenuViewInputListener;
         }
 
         public void OnPlayAgainButtonClick()
         {
-            _gameOverMenuViewInput.OnPlayAgainButtonClick();
+            _gameOverMenuViewInputListener.OnPlayAgainButtonClick();
         }
 
         public void OnQuitButtonClick()
         {
-            _gameOverMenuViewInput.OnQuitButtonClick();
+            _gameOverMenuViewInputListener.OnQuitButtonClick();
         }
     }
 }
