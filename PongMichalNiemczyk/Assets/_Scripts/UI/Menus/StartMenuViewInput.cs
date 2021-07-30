@@ -1,41 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Scripts.UI
 {
-    public class StartMenuViewInput : MonoBehaviour, IStartMenuViewInputListener
+    public class StartMenuViewInput : MonoBehaviour
     {
-        [SerializeField] private Button _startButton;
-        [SerializeField] private Button _quitButton;
+        private IStartMenuViewInputListener _startMenuViewInputListener;
 
-        public void Show()
+        [Inject]
+        public void Construct(IStartMenuViewInputListener startMenuViewInputListener)
         {
-            gameObject.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public Button StartButton
-        {
-            get => _startButton;
-        }
-
-        public Button QuitButton
-        {
-            get => _quitButton;
+            _startMenuViewInputListener = startMenuViewInputListener;
         }
 
         public void OnStartButtonClick()
         {
-            throw new System.NotImplementedException();
+            _startMenuViewInputListener.OnStartButtonClick();
         }
 
         public void OnQuitButtonClick()
         {
-            throw new System.NotImplementedException();
+            _startMenuViewInputListener.OnQuitButtonClick();
         }
     }
 }
