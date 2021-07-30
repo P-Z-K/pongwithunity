@@ -17,9 +17,7 @@ namespace _Scripts.Root
         private readonly IBallFacade _ballFacade;
         private readonly SoundEntityManager _soundEntityManager;
         private readonly ParticleEntityManager _particleEntityManager;
-
-        private readonly MenuManager _menuManager;
-        private readonly UI_PointsTracker _uiPointsTracker;
+        
         private readonly PointsTracker _pointsTracker;
         private readonly SignalBus _signalBus;
 
@@ -31,8 +29,6 @@ namespace _Scripts.Root
             _soundEntityManager = soundEntityManager;
             _ballFacade = ballFacade;
             _particleEntityManager = particleEntityManager;
-            _menuManager = menuManager;
-            _uiPointsTracker = uiPointsTracker;
             _pointsTracker = pointsTracker;
             _signalBus = signalBus;
         }
@@ -40,10 +36,7 @@ namespace _Scripts.Root
         public override void EnterState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
-
-            _menuManager.ChangeMenuTo(MenuType.GameplayMenu);
-
-            SubscribeSignals();
+            
             _particleEntityManager.SubscribeSignals();
             _soundEntityManager.SubscribeSignals();
             _uiPointsTracker.SubscribeSignals();
@@ -51,12 +44,7 @@ namespace _Scripts.Root
 
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
         }
-
-        private void SubscribeSignals()
-        {
-            _signalBus.Subscribe<PlayerWonSignal>(TEST_LoadGameOverState);
-        }
-
+        
         public override void Tick()
         {
             foreach (var pongBatFacade in _pongBatFacades)
@@ -90,12 +78,7 @@ namespace _Scripts.Root
             _uiPointsTracker.UnsubscribeSignals();
             UnsubscribeSignals();
         }
-
-        private void UnsubscribeSignals()
-        {
-            _signalBus.Unsubscribe<PlayerWonSignal>(TEST_LoadGameOverState);
-        }
-
+        
         private void TEST_HandleUserInput()
         {
             if (Input.GetButtonDown("Jump"))

@@ -3,15 +3,12 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
-    public class GameOverMenuView : MonoBehaviour, IMenu
+    public class GameOverMenuView : MonoBehaviour
     {
         [SerializeField] private Button _playAgainButton;
         [SerializeField] private Button _quitButton;
 
-        public MenuType MenuType
-        {
-            get => MenuType.GameOverMenu;
-        }
+
 
         public void Show()
         {

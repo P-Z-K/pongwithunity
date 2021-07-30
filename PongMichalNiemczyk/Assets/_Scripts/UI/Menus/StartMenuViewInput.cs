@@ -3,15 +3,10 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
-    public class StartMenuView : MonoBehaviour, IMenu
+    public class StartMenuViewInput : MonoBehaviour, IStartMenuViewInputListener
     {
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _quitButton;
-
-        public MenuType MenuType
-        {
-            get => MenuType.StartMenu;
-        }
 
         public void Show()
         {
@@ -31,6 +26,16 @@ namespace _Scripts.UI
         public Button QuitButton
         {
             get => _quitButton;
+        }
+
+        public void OnStartButtonClick()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnQuitButtonClick()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
