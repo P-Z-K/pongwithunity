@@ -1,4 +1,4 @@
-namespace _Scripts.UI.Menus
+namespace _Scripts.UI
 {
     public interface IStartMenuViewInputListener
     {

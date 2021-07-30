@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.UI.Menus
+namespace _Scripts.UI
 {
     public class GameOverMenuViewInput : MonoBehaviour
     {
