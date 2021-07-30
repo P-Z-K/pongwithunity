@@ -1402,10 +1402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 666235226}
     m_Modifications:
-    - target: {fileID: 2247660911125551704, guid: 2875506b9f5a369489e8b403345eaa02, type: 3}
-      propertyPath: _bindType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6699256526158312024, guid: 2875506b9f5a369489e8b403345eaa02, type: 3}
       propertyPath: m_Name
       value: GameplayMenu

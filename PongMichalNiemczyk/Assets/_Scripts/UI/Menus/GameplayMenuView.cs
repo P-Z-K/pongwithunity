@@ -3,30 +3,19 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
-    public class GameplayMenuView : MonoBehaviour
+    public class GameplayMenuView : MonoBehaviour, IGameplayMenuView
     {
         [SerializeField] private Text _playerOneScoreText;
         [SerializeField] private Text _playerTwoScoreText;
-        
 
-        public void Show()
+        public void UpdatePlayerOneScoreText(int points)
         {
-            gameObject.SetActive(true);
+            _playerOneScoreText.text = points.ToString();
         }
 
-        public void Hide()
+        public void UpdatePlayerTwoScoreText(int points)
         {
-            gameObject.SetActive(false);
-        }
-
-        public Text PlayerOneScoreText
-        {
-            get => _playerOneScoreText;
-        }
-
-        public Text PlayerTwoScoreText
-        {
-            get => _playerTwoScoreText;
+            _playerTwoScoreText.text = points.ToString();
         }
     }
 }
