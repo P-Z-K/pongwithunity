@@ -1,4 +1,4 @@
-namespace _Scripts.Root.Global_Signals
+namespace _Scripts.Players
 {
     public class PlayerWonSignal
     {

@@ -1,5 +1,4 @@
 using System;
-using _Scripts.Root.Global_Signals;
 using Zenject;
 
 namespace _Scripts.Players

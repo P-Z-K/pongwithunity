@@ -1,5 +1,4 @@
-using _Scripts.Root.Global_Signals;
-using _Scripts.UI;
+using _Scripts.Players;
 using Zenject;
 
 namespace _Scripts.UI

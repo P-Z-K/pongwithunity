@@ -4,7 +4,6 @@ using _Scripts.Ball;
 using _Scripts.Particles;
 using _Scripts.Players;
 using _Scripts.PongBat;
-using _Scripts.Root.Global_Signals;
 using _Scripts.UI;
 using UnityEngine;
 using Zenject;
