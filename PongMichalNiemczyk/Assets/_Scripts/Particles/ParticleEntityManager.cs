@@ -49,31 +49,31 @@ namespace _Scripts.Particles
 
         public void SubscribeSignals()
         {
-            _signalBus.Subscribe<BallHitWallSignal>(TEST_PlayWallHitParticle);
-            _signalBus.Subscribe<BallHitPongBatSignal>(TEST_PlayPongBatHitParticle);
-            _signalBus.Subscribe<BallFellIntoPlayerHoleSignal>(TEST_PlayBallFallIntoPlayerHoleParticle);
+            _signalBus.Subscribe<BallHitWallSignal>(PlayWallHitParticle);
+            _signalBus.Subscribe<BallHitPongBatSignal>(PlayPongBatHitParticle);
+            _signalBus.Subscribe<BallFellIntoPlayerHoleSignal>(PlayBallFallIntoPlayerHoleParticle);
         }
 
         public void UnsubscribeSignals()
         {
-            _signalBus.Unsubscribe<BallHitWallSignal>(TEST_PlayWallHitParticle);
-            _signalBus.Unsubscribe<BallHitPongBatSignal>(TEST_PlayPongBatHitParticle);
-            _signalBus.Unsubscribe<BallFellIntoPlayerHoleSignal>(TEST_PlayBallFallIntoPlayerHoleParticle);
+            _signalBus.Unsubscribe<BallHitWallSignal>(PlayWallHitParticle);
+            _signalBus.Unsubscribe<BallHitPongBatSignal>(PlayPongBatHitParticle);
+            _signalBus.Unsubscribe<BallFellIntoPlayerHoleSignal>(PlayBallFallIntoPlayerHoleParticle);
         }
 
-        private void TEST_PlayBallFallIntoPlayerHoleParticle(BallFellIntoPlayerHoleSignal obj)
+        private void PlayBallFallIntoPlayerHoleParticle(BallFellIntoPlayerHoleSignal obj)
         {
             IParticleEntity particle = _ballFallIntoPlayerHoleParticleEntityPool.Spawn(obj.BallPosition);
             AddToParticlesList(particle);
         }
 
-        private void TEST_PlayPongBatHitParticle(BallHitPongBatSignal obj)
+        private void PlayPongBatHitParticle(BallHitPongBatSignal obj)
         {
             IParticleEntity particle =_pongBatHitParticleEntityPool.Spawn(obj.BallPosition);
             AddToParticlesList(particle);
         }
 
-        private void TEST_PlayWallHitParticle(BallHitWallSignal obj)
+        private void PlayWallHitParticle(BallHitWallSignal obj)
         {
             IParticleEntity particle =_wallHitParticleEntityPool.Spawn(obj.BallPosition);
             AddToParticlesList(particle);
