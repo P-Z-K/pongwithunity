@@ -1,5 +1,5 @@
 using _Scripts.Root.Global_Signals;
-using _Scripts.UI.Menus;
+using _Scripts.UI;
 using Zenject;
 
 namespace _Scripts.UI

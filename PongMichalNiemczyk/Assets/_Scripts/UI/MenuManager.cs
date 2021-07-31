@@ -1,5 +1,4 @@
 using System;
-using _Scripts.UI.Menus;
 using UnityEngine.UI;
 
 namespace _Scripts.UI

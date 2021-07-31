@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Scripts.UI.Menus
+namespace _Scripts.UI
 {
     public class StartMenuView : MonoBehaviour, IMenu
     {
