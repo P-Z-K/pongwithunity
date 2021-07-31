@@ -10,7 +10,7 @@ namespace _Scripts.Audio
 
         public override void InstallBindings()
         {
-            Container.Bind<SoundEntityPooler>().AsSingle();
+            Container.Bind<SoundEntityManager>().AsSingle();
 
             Container.BindMemoryPool<SoundEntity, SoundEntityPool>()
                 .WithInitialSize(3)

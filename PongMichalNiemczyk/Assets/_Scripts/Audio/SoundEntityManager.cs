@@ -6,7 +6,7 @@ using Zenject;
 
 namespace _Scripts.Audio
 {
-    public class SoundEntityPooler
+    public class SoundEntityManager
     {
         [Inject] private readonly List<SoundEntity> _soundEntities = new List<SoundEntity>();
         
@@ -15,19 +15,33 @@ namespace _Scripts.Audio
         private readonly SignalBus _signalBus;
 
 
-        public SoundEntityPooler(SoundEntityPool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
+        public SoundEntityManager(SoundEntityPool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
         {
             _soundEntityPool = soundEntityPool;
             _soundSettings = soundSettings;
             _signalBus = signalBus;
-            
-            SubscribeSignals();
         }
 
-        private void SubscribeSignals()
+        public void SubscribeSignals()
         {
-            _signalBus.Subscribe<BallHitWallSignal>(x => Play(Sound.WallHit, x.BallPosition));
-            _signalBus.Subscribe<BallHitPongBatSignal>(x => Play(Sound.PongBatHit, x.BallPosition));
+            _signalBus.Subscribe<BallHitWallSignal>(PlayWallHit);
+            _signalBus.Subscribe<BallHitPongBatSignal>(PlayPongBatHit);
+        }
+
+        public void UnsubscribeSignals()
+        {
+            _signalBus.Unsubscribe<BallHitWallSignal>(PlayWallHit);
+            _signalBus.Unsubscribe<BallHitPongBatSignal>(PlayPongBatHit);
+        }
+
+        private void PlayPongBatHit(BallHitPongBatSignal obj)
+        {
+            Play(Sound.PongBatHit, obj.BallPosition);
+        }
+
+        private void PlayWallHit(BallHitWallSignal obj)
+        {
+            Play(Sound.WallHit, obj.BallPosition);
         }
 
         public void Tick()
@@ -43,7 +57,7 @@ namespace _Scripts.Audio
 
         private void ReturnSoundEntityToPool(SoundEntity soundEntity)
         {
-            _soundEntityPool.Despawn(soundEntity);
+            soundEntity.Despawn();
             _soundEntities.Remove(soundEntity);
         }
 

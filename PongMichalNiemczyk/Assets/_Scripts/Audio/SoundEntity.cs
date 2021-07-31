@@ -9,14 +9,21 @@ namespace _Scripts.Audio
     {
         [SerializeField] private AudioSource _audioSource;
 
+        private SoundEntityPool _pool;
         private CameraRefHolder _cameraRefHolder;
 
         [Inject]
-        public void Construct(CameraRefHolder cameraRefHolder)
+        public void Construct(CameraRefHolder cameraRefHolder, SoundEntityPool pool)
         {
             _cameraRefHolder = cameraRefHolder;
+            _pool = pool;
 
             SetUpZValue();
+        }
+        
+        public void Despawn()
+        {
+            _pool.Despawn(this);
         }
 
         private void SetUpZValue()

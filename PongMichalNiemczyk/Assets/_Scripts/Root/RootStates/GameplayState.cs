@@ -16,7 +16,7 @@ namespace _Scripts.Root
         [Inject] private List<PongBatFacade> _pongBatFacades = new List<PongBatFacade>();
 
         private readonly IBallFacade _ballFacade;
-        private readonly SoundEntityPooler _soundEntityPooler;
+        private readonly SoundEntityManager _soundEntityManager;
         private readonly ParticleEntityManager _particleEntityManager;
 
         private readonly MenuManager _menuManager;
@@ -24,12 +24,12 @@ namespace _Scripts.Root
         private readonly PointsTracker _pointsTracker;
         private readonly SignalBus _signalBus;
 
-        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler,
+        public GameplayState(Root owner, SoundEntityManager soundEntityManager,
             IBallFacade ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager,
             UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker, SignalBus signalBus)
             : base(owner)
         {
-            _soundEntityPooler = soundEntityPooler;
+            _soundEntityManager = soundEntityManager;
             _ballFacade = ballFacade;
             _particleEntityManager = particleEntityManager;
             _menuManager = menuManager;
@@ -46,6 +46,7 @@ namespace _Scripts.Root
 
             SubscribeSignals();
             _particleEntityManager.SubscribeSignals();
+            _soundEntityManager.SubscribeSignals();
             _uiPointsTracker.SubscribeSignals();
             _pointsTracker.ResetPoints();
 
@@ -65,7 +66,7 @@ namespace _Scripts.Root
             }
 
             _ballFacade.Tick();
-            _soundEntityPooler.Tick();
+            _soundEntityManager.Tick();
             _particleEntityManager.Tick();
 
 
@@ -86,6 +87,7 @@ namespace _Scripts.Root
             Debug.Log("<color=red>[ROOT STATE]</color> Exiting Gameplay state");
 
             _particleEntityManager.UnsubscribeSignals();
+            _soundEntityManager.UnsubscribeSignals();
             _uiPointsTracker.UnsubscribeSignals();
             UnsubscribeSignals();
         }
