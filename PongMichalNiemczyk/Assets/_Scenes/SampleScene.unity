@@ -904,8 +904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSettings:
     _wallHitParticle: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
-    _pongBatHitParticle: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
-    _ballFallInPlayerHoleParticle: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+    _pongBatHitParticle: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    _ballFallInPlayerHoleParticle: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   _pongBatHitParticlesWrapper: {fileID: 1382171844}
   _wallHitParticlesWrapper: {fileID: 853801799}
   _ballFallInPlayerHoleParticlesWrapper: {fileID: 1953683040}
