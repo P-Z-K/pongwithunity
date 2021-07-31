@@ -1,11 +1,10 @@
 using System;
 using UnityEngine;
-using Zenject;
 
-namespace _Scripts.Root.GameSettings
+namespace _Scripts.Players
 {
     [Serializable]
-    public class GameSettings 
+    public class PointsTrackerSettings 
     {
         [Range(1, 20)] public int _pointsToWin;
     }

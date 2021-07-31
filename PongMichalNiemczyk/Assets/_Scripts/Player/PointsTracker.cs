@@ -1,7 +1,5 @@
 using System;
-using _Scripts.Root.GameSettings;
 using _Scripts.Root.Global_Signals;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Players
@@ -11,14 +9,14 @@ namespace _Scripts.Players
         private readonly PlayerOne _playerOne;
         private readonly PlayerTwo _playerTwo;
         private readonly SignalBus _signalBus;
-        private readonly GameSettings _gameSettings;
+        private readonly PointsTrackerSettings _pointsTrackerSettings;
 
-        public PointsTracker(PlayerOne playerOne, PlayerTwo playerTwo, SignalBus signalBus, GameSettings gameSettings)
+        public PointsTracker(PlayerOne playerOne, PlayerTwo playerTwo, SignalBus signalBus, PointsTrackerSettings pointsTrackerSettings)
         {
             _playerOne = playerOne;
             _playerTwo = playerTwo;
             _signalBus = signalBus;
-            _gameSettings = gameSettings;
+            _pointsTrackerSettings = pointsTrackerSettings;
         }
 
         public void DecideWhoGivePointTo(PlayerHole holeThatBallFallInto)
@@ -28,7 +26,7 @@ namespace _Scripts.Players
 
             _signalBus.Fire(new PlayerPointsChangedSignal(_playerOne.Points, _playerTwo.Points));
 
-            if (chosenPlayer.Points >= _gameSettings._pointsToWin)
+            if (chosenPlayer.Points >= _pointsTrackerSettings._pointsToWin)
             {
                 _signalBus.Fire<PlayerWonSignal>();
             }
