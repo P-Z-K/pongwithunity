@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -11,21 +10,9 @@ namespace _Scripts.Ball
 
         private SignalBus _signalBus;
 
-        [Inject]
-        public void Construct(SignalBus signalBus)
-        {
-            _signalBus = signalBus;
-        }
+        public Rigidbody2D Rigidbody2D => _rigidbody2D;
 
-        public Rigidbody2D Rigidbody2D
-        {
-            get => _rigidbody2D;
-        }
-
-        public SpriteRenderer SpriteRenderer
-        {
-            get => _spriteRenderer;
-        }
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
 
         public Vector3 Position
         {
@@ -39,14 +26,20 @@ namespace _Scripts.Ball
             set => transform.rotation = value;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        [Inject]
+        public void Construct(SignalBus signalBus)
         {
-            _signalBus.Fire(new BallTriggerEntered2DSignal(other));
+            _signalBus = signalBus;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             _signalBus.Fire(new BallCollisionEntered2DSignal(other));
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            _signalBus.Fire(new BallTriggerEntered2DSignal(other));
         }
     }
 }

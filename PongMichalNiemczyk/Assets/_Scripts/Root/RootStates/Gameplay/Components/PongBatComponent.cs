@@ -11,12 +11,18 @@ namespace _Scripts.Root
 
         public override void Tick()
         {
-            foreach (PongBatFacade pongBat in _pongBatFacades) pongBat.Tick();
+            foreach (PongBatFacade pongBat in _pongBatFacades)
+            {
+                pongBat.Tick();
+            }
         }
 
         public override void FixedTick()
         {
-            foreach (PongBatFacade pongBat in _pongBatFacades) pongBat.FixedTick();
+            foreach (PongBatFacade pongBat in _pongBatFacades)
+            {
+                pongBat.FixedTick();
+            }
         }
     }
 }

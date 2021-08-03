@@ -9,10 +9,9 @@ namespace _Scripts.Audio
     public class SoundEntityManager
     {
         [Inject] private readonly List<SoundEntity> _soundEntities = new List<SoundEntity>();
-        
+        private readonly SignalBus _signalBus;
         private readonly SoundEntityPool _soundEntityPool;
         private readonly SoundSettings _soundSettings;
-        private readonly SignalBus _signalBus;
 
 
         public SoundEntityManager(SoundEntityPool soundEntityPool, SoundSettings soundSettings, SignalBus signalBus)
@@ -44,23 +43,6 @@ namespace _Scripts.Audio
             Play(Sound.WallHit, obj.BallPosition);
         }
 
-        public void Tick()
-        {
-            foreach (var soundEntity in _soundEntities.ToList())
-            {
-                if (!soundEntity.IsPlaying)
-                {
-                    ReturnSoundEntityToPool(soundEntity);
-                }
-            }
-        }
-
-        private void ReturnSoundEntityToPool(SoundEntity soundEntity)
-        {
-            soundEntity.Despawn();
-            _soundEntities.Remove(soundEntity);
-        }
-
         private void Play(Sound sound, Vector3 position)
         {
             AudioClip audioClip = ChooseAudioClip(sound);
@@ -72,7 +54,7 @@ namespace _Scripts.Audio
         {
             SoundSettings.SoundAudioClip[] clips = _soundSettings._sounds;
 
-            foreach (var clip in clips)
+            foreach (SoundSettings.SoundAudioClip clip in clips)
             {
                 if (clip._sound == sound)
                 {
@@ -86,6 +68,23 @@ namespace _Scripts.Audio
         private AudioClip GetRandomAudioClip(AudioClip[] clips)
         {
             return clips[Random.Range(0, clips.Length)];
+        }
+
+        public void Tick()
+        {
+            foreach (SoundEntity soundEntity in _soundEntities.ToList())
+            {
+                if (!soundEntity.IsPlaying)
+                {
+                    ReturnSoundEntityToPool(soundEntity);
+                }
+            }
+        }
+
+        private void ReturnSoundEntityToPool(SoundEntity soundEntity)
+        {
+            soundEntity.Despawn();
+            _soundEntities.Remove(soundEntity);
         }
     }
 }

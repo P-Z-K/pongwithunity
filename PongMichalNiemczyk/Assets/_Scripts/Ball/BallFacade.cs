@@ -8,17 +8,14 @@ namespace _Scripts.Ball
     {
         private BallStateManager _ballStateManager;
 
+        public State<BallStateManager> CurrentState => _ballStateManager.CurrentState;
+
         [Inject]
         public void Construct(BallStateManager ballStateManager)
         {
             _ballStateManager = ballStateManager;
         }
 
-        public State<BallStateManager> CurrentState
-        {
-            get => _ballStateManager.CurrentState;
-        }
-        
         public void ChangeStateTo<T>() where T : State<BallStateManager>
         {
             _ballStateManager.ChangeStateTo<T>();
@@ -28,11 +25,10 @@ namespace _Scripts.Ball
         {
             _ballStateManager.Tick();
         }
-        
+
         public void FixedTick()
         {
             _ballStateManager.FixedTick();
         }
-        
     }
 }

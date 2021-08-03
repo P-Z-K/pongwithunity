@@ -4,25 +4,27 @@ using _Scripts.Ball;
 using _Scripts.Particles.ParticleTypes;
 using _Scripts.Particles.ParticleTypes.BallParticle;
 using _Scripts.Particles.ParticleTypes.PongBatParticle;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Particles
 {
     public class ParticleEntityManager
     {
-        private List<IParticleEntity> _particleEntities =
+        private readonly BallFallIntoPlayerHoleParticleEntityPool _ballFallIntoPlayerHoleParticleEntityPool;
+
+        private readonly List<IParticleEntity> _particleEntities =
             new List<IParticleEntity>();
+
+        private readonly PongBatHitParticleEntityPool _pongBatHitParticleEntityPool;
 
         private readonly SignalBus _signalBus;
         private readonly WallHitParticleEntityPool _wallHitParticleEntityPool;
-        private readonly PongBatHitParticleEntityPool _pongBatHitParticleEntityPool;
-        private readonly BallFallIntoPlayerHoleParticleEntityPool _ballFallIntoPlayerHoleParticleEntityPool;
 
-        public ParticleEntityManager(SignalBus signalBus,
-            WallHitParticleEntityPool wallHitParticleEntityPool,
-            PongBatHitParticleEntityPool pongBatHitParticleEntityPool,
-            BallFallIntoPlayerHoleParticleEntityPool ballFallIntoPlayerHoleParticleEntityPool)
+        public ParticleEntityManager(
+            SignalBus signalBus
+            , WallHitParticleEntityPool wallHitParticleEntityPool
+            , PongBatHitParticleEntityPool pongBatHitParticleEntityPool
+            , BallFallIntoPlayerHoleParticleEntityPool ballFallIntoPlayerHoleParticleEntityPool)
         {
             _signalBus = signalBus;
             _wallHitParticleEntityPool = wallHitParticleEntityPool;
@@ -32,7 +34,7 @@ namespace _Scripts.Particles
 
         public void Tick()
         {
-            foreach (var entity in _particleEntities.ToList())
+            foreach (IParticleEntity entity in _particleEntities.ToList())
             {
                 if (!entity.IsPlaying)
                 {
@@ -40,7 +42,7 @@ namespace _Scripts.Particles
                 }
             }
         }
-        
+
         private void ReturnEntityToPool(IParticleEntity entity)
         {
             entity.Despawn();
@@ -69,13 +71,13 @@ namespace _Scripts.Particles
 
         private void PlayPongBatHitParticle(BallHitPongBatSignal obj)
         {
-            IParticleEntity particle =_pongBatHitParticleEntityPool.Spawn(obj.BallPosition);
+            IParticleEntity particle = _pongBatHitParticleEntityPool.Spawn(obj.BallPosition);
             AddToParticlesList(particle);
         }
 
         private void PlayWallHitParticle(BallHitWallSignal obj)
         {
-            IParticleEntity particle =_wallHitParticleEntityPool.Spawn(obj.BallPosition);
+            IParticleEntity particle = _wallHitParticleEntityPool.Spawn(obj.BallPosition);
             AddToParticlesList(particle);
         }
 

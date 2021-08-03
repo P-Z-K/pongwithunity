@@ -1,5 +1,4 @@
 using _Scripts.UI.Signals;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.UI
@@ -15,24 +14,12 @@ namespace _Scripts.UI
             _signalBus = signalBus;
         }
 
-        public void Show()
-        {
-            _gameOverMenuView.Show();
-        }
+        public void OnPlayAgainButtonClick() => _signalBus.Fire<PlayAgainButtonClickedSignal>();
 
-        public void Hide()
-        {
-            _gameOverMenuView.Hide();
-        }
+        public void OnQuitButtonClick() => _signalBus.Fire<QuitButtonClickedSignal>();
 
-        public void OnPlayAgainButtonClick()
-        {
-            _signalBus.Fire<PlayAgainButtonClickedSignal>();
-        }
+        public void Show() => _gameOverMenuView.Show();
 
-        public void OnQuitButtonClick()
-        {
-            _signalBus.Fire<QuitButtonClickedSignal>();
-        }
+        public void Hide() => _gameOverMenuView.Hide();
     }
 }

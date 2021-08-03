@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Points Tracker Settings Installer
   m_EditorClassIdentifier: 
   _pointsTrackerSettings:
-    _pointsToWin: 5
+    _pointsToWin: 2

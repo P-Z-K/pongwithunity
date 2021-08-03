@@ -5,8 +5,8 @@ namespace _Scripts.PongBat
 {
     public class PongBatFacade : MonoBehaviour
     {
-        private PongBatMovementHandler _pongBatMovementHandler;
         private InputManager _inputManager;
+        private PongBatMovementHandler _pongBatMovementHandler;
 
         [Inject]
         public void Construct(PongBatMovementHandler pongBatMovementHandler, InputManager inputManager)

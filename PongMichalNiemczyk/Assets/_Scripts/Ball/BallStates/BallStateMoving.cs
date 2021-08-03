@@ -10,12 +10,17 @@ namespace _Scripts.Ball
     {
         private readonly BallMovement _ballMovement;
         private readonly BallView _ballView;
+        private readonly PointsTracker _pointsTracker;
         private readonly SignalBus _signalBus;
         private readonly TagsSettings _tagsSettings;
-        private readonly PointsTracker _pointsTracker;
 
-        public BallStateMoving(BallStateManager owner, BallMovement ballMovement, SignalBus signalBus, 
-            TagsSettings tagsSettings, BallView ballView, PointsTracker pointsTracker)
+        public BallStateMoving(
+            BallStateManager owner
+            , BallMovement ballMovement
+            , SignalBus signalBus
+            , TagsSettings tagsSettings
+            , BallView ballView
+            , PointsTracker pointsTracker)
             : base(owner)
         {
             _ballMovement = ballMovement;
@@ -25,22 +30,23 @@ namespace _Scripts.Ball
             _pointsTracker = pointsTracker;
         }
 
+
+        public override void EnterState()
+        {
+            SubscribeSignals();
+            _ballMovement.StartMove();
+        }
+
         private void SubscribeSignals()
         {
             _signalBus.Subscribe<BallTriggerEntered2DSignal>(OnTriggerEnter2D);
             _signalBus.Subscribe<BallCollisionEntered2DSignal>(OnCollisionEnter2D);
         }
 
-        private void UnsubscribeSignals()
-        {
-            _signalBus.Unsubscribe<BallTriggerEntered2DSignal>(OnTriggerEnter2D);
-            _signalBus.Unsubscribe<BallCollisionEntered2DSignal>(OnCollisionEnter2D);
-        }
-        
         private void OnCollisionEnter2D(BallCollisionEntered2DSignal obj)
         {
             Collision2D other = obj.Other;
-            
+
             if (other.gameObject.CompareTag(_tagsSettings.WallTag))
             {
                 _signalBus.Fire(new BallHitWallSignal(_ballView.Position));
@@ -55,10 +61,10 @@ namespace _Scripts.Ball
         private void OnTriggerEnter2D(BallTriggerEntered2DSignal obj)
         {
             Collider2D other = obj.Other;
-            
+
             if (other.gameObject.CompareTag(_tagsSettings.PlayerHoleTag))
             {
-                PlayerHole playerHole = other.GetComponent<PlayerHole>();
+                var playerHole = other.GetComponent<PlayerHole>();
                 if (playerHole)
                 {
                     _pointsTracker.DecideWhoGivePointTo(playerHole);
@@ -66,13 +72,6 @@ namespace _Scripts.Ball
 
                 _owner.ChangeStateTo<BallStateInPlayerHole>();
             }
-        }
-
-        public override void EnterState()
-        {
-            Debug.Log("<color=lime>[BALL STATE]</color> Ball starts moving...");
-            SubscribeSignals();
-            _ballMovement.StartMove();
         }
 
         public override void Tick()
@@ -87,6 +86,12 @@ namespace _Scripts.Ball
         public override void ExitState()
         {
             UnsubscribeSignals();
+        }
+
+        private void UnsubscribeSignals()
+        {
+            _signalBus.Unsubscribe<BallTriggerEntered2DSignal>(OnTriggerEnter2D);
+            _signalBus.Unsubscribe<BallCollisionEntered2DSignal>(OnCollisionEnter2D);
         }
     }
 }

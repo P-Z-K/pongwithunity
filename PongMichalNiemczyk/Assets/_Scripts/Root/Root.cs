@@ -1,26 +1,16 @@
-using System;
+using _Scripts.Composite;
 using Zenject;
 
 namespace _Scripts.Root
 {
     public class Root : IInitializable, ITickable, IFixedTickable
     {
-        private State<Root> _currentState;
         private readonly DiContainer _diContainer;
+        private CompositeComponent _currentState;
 
         public Root(DiContainer diContainer)
         {
             _diContainer = diContainer;
-        }
-        
-        public void Initialize()
-        {
-            ChangeStateTo<StartState>();
-        }
-
-        public void Tick()
-        {
-            _currentState?.Tick();
         }
 
         public void FixedTick()
@@ -28,11 +18,27 @@ namespace _Scripts.Root
             _currentState?.FixedTick();
         }
 
-        public void ChangeStateTo<T>() where T : State<Root>
+        public void Initialize()
         {
-            _currentState?.ExitState();
-            _currentState = _diContainer.Instantiate<T>();
-            _currentState?.EnterState();
+            CreateNewState<StartStateFactory>();
+        }
+
+        public void Tick()
+        {
+            _currentState?.Tick();
+        }
+
+        private void ChangeStateTo(IFactory<CompositeComponent> factory)
+        {
+            _currentState?.Exit();
+            _currentState = factory.Create();
+            _currentState?.Enter();
+        }
+
+        public void CreateNewState<T>() where T : IFactory<CompositeComponent>
+        {
+            var factory = _diContainer.Instantiate<T>();
+            ChangeStateTo(factory);
         }
     }
 }

@@ -4,8 +4,8 @@ namespace _Scripts.Ball
 {
     public class BallMovement
     {
-        private readonly BallView _ballView;
         private readonly BallSettings _ballSettings;
+        private readonly BallView _ballView;
 
         public BallMovement(BallView ballView, BallSettings ballSettings)
         {
@@ -34,24 +34,26 @@ namespace _Scripts.Ball
             _ballView.Rigidbody2D.velocity = GetRandomDirection().normalized * _ballSettings._speed;
         }
 
-        private Vector2 GetRandomDirection()
-        {
-            float x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
-                _ballSettings._maximumStartHorizontalDirection);
-            float y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
-                _ballSettings._maximumStartVerticalDirection);
-            return new Vector2(x, y);
-        }
-
         public void StopMove()
         {
             _ballView.Rigidbody2D.velocity = Vector2.zero;
         }
 
+        private Vector2 GetRandomDirection()
+        {
+            float x = Random.Range(-_ballSettings._maximumStartHorizontalDirection,
+                _ballSettings._maximumStartHorizontalDirection
+            );
+            float y = Random.Range(-_ballSettings._maximumStartVerticalDirection,
+                _ballSettings._maximumStartVerticalDirection
+            );
+            return new Vector2(x, y);
+        }
+
         public void CheckIfBallMovingProperly()
         {
             Vector2 direction = _ballView.Rigidbody2D.velocity;
-            
+
             float speed = direction.magnitude;
             // If the result of the subtraction is greater than sth small
             // it's a sign that our speed has changed.
@@ -66,7 +68,7 @@ namespace _Scripts.Ball
                 PreventHorizontalLoops(direction);
             }
 
-            var minimumXValue = _ballSettings._minimumHorizontalMovement;
+            float minimumXValue = _ballSettings._minimumHorizontalMovement;
             if (direction.x > -minimumXValue && direction.x < minimumXValue)
             {
                 PreventVerticalLoops(direction);
@@ -75,30 +77,27 @@ namespace _Scripts.Ball
 
         private void PreventBallFromMovingTooFastOrTooSlow(Vector2 direction)
         {
-            Debug.Log("<color=lime>[BALL INFO]</color> Preventing ball from moving too fast or too slow...");
             _ballView.Rigidbody2D.velocity = direction.normalized * _ballSettings._speed;
-        }
-
-        private void PreventVerticalLoops(Vector2 direction)
-        {
-            Debug.Log("<color=lime>[BALL INFO]</color> Preventing vertical loops...");
-            float speed = direction.magnitude;
-
-            float minimumXValue = _ballSettings._minimumHorizontalMovement;
-            // Adjust the x, make sure it keeps going into the direction it was going
-            direction.x = direction.x < 0 ? -minimumXValue : minimumXValue;
-
-            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
 
         private void PreventHorizontalLoops(Vector2 direction)
         {
-            Debug.Log("<color=lime>[BALL INFO]</color> Preventing horizontal loops...");
             float speed = direction.magnitude;
 
             float minimumYValue = _ballSettings._minimumVerticalMovement;
             // Adjust the y, make sure it keeps going into the direction it was going
             direction.y = direction.y < 0 ? -minimumYValue : minimumYValue;
+
+            _ballView.Rigidbody2D.velocity = direction.normalized * speed;
+        }
+
+        private void PreventVerticalLoops(Vector2 direction)
+        {
+            float speed = direction.magnitude;
+
+            float minimumXValue = _ballSettings._minimumHorizontalMovement;
+            // Adjust the x, make sure it keeps going into the direction it was going
+            direction.x = direction.x < 0 ? -minimumXValue : minimumXValue;
 
             _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }
@@ -111,7 +110,8 @@ namespace _Scripts.Ball
             float randomFactor = _ballSettings._randomDirectionBounceFactor;
             direction += new Vector2(
                 Random.Range(-randomFactor, randomFactor),
-                Random.Range(-randomFactor, randomFactor));
+                Random.Range(-randomFactor, randomFactor)
+            );
 
             _ballView.Rigidbody2D.velocity = direction.normalized * speed;
         }

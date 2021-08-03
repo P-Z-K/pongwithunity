@@ -7,10 +7,10 @@ namespace _Scripts.Audio
     public class SoundSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private SoundSettings _soundSettings;
+
         public override void InstallBindings()
         {
             Container.BindInstance(_soundSettings).AsSingle();
         }
     }
-
 }

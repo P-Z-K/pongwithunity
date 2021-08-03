@@ -10,8 +10,11 @@ namespace _Scripts.Ball
         private readonly BallView _ballView;
         private readonly SignalBus _signalBus;
 
-        public BallStateInPlayerHole(BallStateManager owner, BallMovement ballMovement, BallView ballView, 
-            SignalBus signalBus)
+        public BallStateInPlayerHole(
+            BallStateManager owner
+            , BallMovement ballMovement
+            , BallView ballView
+            , SignalBus signalBus)
             : base(owner)
         {
             _ballMovement = ballMovement;
@@ -21,8 +24,6 @@ namespace _Scripts.Ball
 
         public override void EnterState()
         {
-            Debug.Log("<color=lime>[BALL STATE]</color> Ball is in player hole...");
-            
             DisableBall();
             _signalBus.Fire(new BallFellIntoPlayerHoleSignal(_ballView.Position));
         }

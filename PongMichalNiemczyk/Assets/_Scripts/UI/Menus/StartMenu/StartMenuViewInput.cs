@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace _Scripts.UI
@@ -14,14 +13,8 @@ namespace _Scripts.UI
             _startMenuViewInputListener = startMenuViewInputListener;
         }
 
-        public void OnStartButtonClick()
-        {
-            _startMenuViewInputListener.OnStartButtonClick();
-        }
+        public void OnStartButtonClick() => _startMenuViewInputListener.OnStartButtonClick();
 
-        public void OnQuitButtonClick()
-        {
-            _startMenuViewInputListener.OnQuitButtonClick();
-        }
+        public void OnQuitButtonClick() => _startMenuViewInputListener.OnQuitButtonClick();
     }
 }

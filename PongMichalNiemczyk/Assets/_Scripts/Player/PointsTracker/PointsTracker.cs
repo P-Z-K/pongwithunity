@@ -7,10 +7,14 @@ namespace _Scripts.Players
     {
         private readonly PlayerOne _playerOne;
         private readonly PlayerTwo _playerTwo;
-        private readonly SignalBus _signalBus;
         private readonly PointsTrackerSettings _pointsTrackerSettings;
+        private readonly SignalBus _signalBus;
 
-        public PointsTracker(PlayerOne playerOne, PlayerTwo playerTwo, SignalBus signalBus, PointsTrackerSettings pointsTrackerSettings)
+        public PointsTracker(
+            PlayerOne playerOne
+            , PlayerTwo playerTwo
+            , SignalBus signalBus
+            , PointsTrackerSettings pointsTrackerSettings)
         {
             _playerOne = playerOne;
             _playerTwo = playerTwo;

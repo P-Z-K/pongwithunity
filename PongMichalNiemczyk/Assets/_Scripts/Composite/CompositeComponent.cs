@@ -2,8 +2,6 @@ namespace _Scripts.Composite
 {
     public abstract class CompositeComponent : IComponent
     {
-        public abstract void AddChild(IComponent child);
-
         public virtual void Enter()
         {
         }
@@ -19,5 +17,7 @@ namespace _Scripts.Composite
         public virtual void Exit()
         {
         }
+
+        public abstract void AddChild(IComponent child);
     }
 }

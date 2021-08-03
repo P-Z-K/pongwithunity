@@ -4,8 +4,7 @@ namespace _Scripts.Players
 {
     public enum HoleType
     {
-        PlayerOne,
-        PlayerTwo,
+        PlayerOne, PlayerTwo
     }
 
     public abstract class PlayerHole : MonoBehaviour

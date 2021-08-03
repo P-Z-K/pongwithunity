@@ -22,12 +22,12 @@ namespace _Scripts.Particles
                 .WithInitialSize(4)
                 .FromComponentInNewPrefab(_particleSettings._pongBatHitParticle)
                 .UnderTransform(_pongBatHitParticlesWrapper);
-            
+
             Container.BindMemoryPool<WallHitParticleEntity, WallHitParticleEntityPool>()
                 .WithInitialSize(4)
                 .FromComponentInNewPrefab(_particleSettings._wallHitParticle)
                 .UnderTransform(_wallHitParticlesWrapper);
-            
+
             Container.BindMemoryPool<BallFallIntoPlayerHoleParticleEntity, BallFallIntoPlayerHoleParticleEntityPool>()
                 .WithInitialSize(2)
                 .FromComponentInNewPrefab(_particleSettings._ballFallInPlayerHoleParticle)

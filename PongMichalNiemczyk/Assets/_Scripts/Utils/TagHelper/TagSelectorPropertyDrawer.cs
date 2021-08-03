@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine;
 
 namespace _Scripts.Utils
 {
@@ -32,10 +33,10 @@ namespace _Scripts.Utils
 
 
             //generate the taglist + custom tags
-            List<string> tagList = new List<string>();
+            var tagList = new List<string>();
             tagList.Add("<NoTag>");
-            tagList.AddRange(UnityEditorInternal.InternalEditorUtility.tags);
-            
+            tagList.AddRange(InternalEditorUtility.tags);
+
             string propertyString = property.stringValue;
             int index = -1;
             if (propertyString == "")
@@ -47,7 +48,7 @@ namespace _Scripts.Utils
             {
                 //check if there is an entry that matches the entry and get the index
                 //we skip index 0 as that is a special custom case
-                for (int i = 1; i < tagList.Count; i++)
+                for (var i = 1; i < tagList.Count; i++)
                 {
                     if (tagList[i] == propertyString)
                     {

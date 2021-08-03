@@ -17,6 +17,5 @@ namespace _Scripts.Audio
                 .FromComponentInNewPrefab(_soundClipPrefab)
                 .UnderTransform(_soundsWrapper);
         }
-
     }
 }

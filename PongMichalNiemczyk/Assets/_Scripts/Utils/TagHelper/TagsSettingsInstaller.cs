@@ -7,6 +7,7 @@ namespace _Scripts.Utils
     public class TagsSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private TagsSettings _tagsSettings;
+
         public override void InstallBindings()
         {
             Container.BindInstance(_tagsSettings).AsSingle();

@@ -13,14 +13,8 @@ namespace _Scripts.UI
             _gameOverMenuViewInputListener = gameOverMenuViewInputListener;
         }
 
-        public void OnPlayAgainButtonClick()
-        {
-            _gameOverMenuViewInputListener.OnPlayAgainButtonClick();
-        }
+        public void OnPlayAgainButtonClick() => _gameOverMenuViewInputListener.OnPlayAgainButtonClick();
 
-        public void OnQuitButtonClick()
-        {
-            _gameOverMenuViewInputListener.OnQuitButtonClick();
-        }
+        public void OnQuitButtonClick() => _gameOverMenuViewInputListener.OnQuitButtonClick();
     }
 }

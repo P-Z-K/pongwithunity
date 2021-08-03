@@ -13,7 +13,7 @@ namespace _Scripts.Players
             Container.Bind<PointsTracker>().AsSingle();
             Container.Bind<PlayerOne>().AsSingle();
             Container.Bind<PlayerTwo>().AsSingle();
-            
+
             Container.BindInstance(_playerOneHole);
             Container.BindInstance(_playerTwoHole);
         }

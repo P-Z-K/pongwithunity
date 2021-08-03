@@ -5,8 +5,8 @@ namespace _Scripts.Ball
 {
     public class BallStateManager
     {
-        public State<BallStateManager> CurrentState { get; private set; }
         private DiContainer _diContainer;
+        public State<BallStateManager> CurrentState { get; private set; }
 
         [Inject]
         public void Construct(DiContainer diContainer)

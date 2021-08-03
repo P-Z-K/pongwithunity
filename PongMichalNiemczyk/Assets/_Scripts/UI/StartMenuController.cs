@@ -1,13 +1,12 @@
 using _Scripts.UI.Signals;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.UI
 {
     public class StartMenuController : IStartMenuViewInputListener
     {
-        private readonly StartMenuView _startMenuView;
         private readonly SignalBus _signalBus;
+        private readonly StartMenuView _startMenuView;
 
         public StartMenuController(StartMenuView startMenuView, SignalBus signalBus)
         {
@@ -15,25 +14,13 @@ namespace _Scripts.UI
             _signalBus = signalBus;
         }
 
-        public void Show()
-        {
-            _startMenuView.Show();
-        }
+        public void OnStartButtonClick() => _signalBus.Fire<StartButtonClickedSignal>();
+
+        public void OnQuitButtonClick() => _signalBus.Fire<QuitButtonClickedSignal>();
+
+        public void Show() => _startMenuView.Show();
 
 
-        public void Hide()
-        {
-            _startMenuView.Hide();
-        }
-
-        public void OnStartButtonClick()
-        {
-            _signalBus.Fire<StartButtonClickedSignal>();
-        }
-
-        public void OnQuitButtonClick()
-        {
-            _signalBus.Fire<QuitButtonClickedSignal>();
-        }
+        public void Hide() => _startMenuView.Hide();
     }
 }

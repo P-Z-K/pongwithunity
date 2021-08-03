@@ -4,7 +4,7 @@ using Zenject;
 namespace _Scripts.Particles
 {
     public class ParticleEntityPool<T> : MonoMemoryPool<Vector3, T>
-    where T : Component, IParticleEntity
+        where T : Component, IParticleEntity
     {
         protected override void Reinitialize(Vector3 position, T item)
         {

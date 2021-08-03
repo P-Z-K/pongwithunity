@@ -8,24 +8,12 @@ namespace _Scripts.UI
         [SerializeField] private Text _playerOneScoreText;
         [SerializeField] private Text _playerTwoScoreText;
 
-        public void UpdatePlayerOneScoreText(int points)
-        {
-            _playerOneScoreText.text = points.ToString();
-        }
+        public void UpdatePlayerOneScoreText(int points) => _playerOneScoreText.text = points.ToString();
 
-        public void UpdatePlayerTwoScoreText(int points)
-        {
-            _playerTwoScoreText.text = points.ToString();
-        }
+        public void UpdatePlayerTwoScoreText(int points) => _playerTwoScoreText.text = points.ToString();
 
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
+        public void Show() => gameObject.SetActive(true);
 
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
+        public void Hide() => gameObject.SetActive(false);
     }
 }

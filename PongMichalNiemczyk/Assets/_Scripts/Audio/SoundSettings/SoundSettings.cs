@@ -5,10 +5,9 @@ namespace _Scripts.Audio
 {
     public enum Sound
     {
-        WallHit,
-        PongBatHit,
+        WallHit, PongBatHit
     }
-    
+
     [Serializable]
     public class SoundSettings
     {
@@ -22,5 +21,4 @@ namespace _Scripts.Audio
             public AudioClip[] _audioClip;
         }
     }
-
 }

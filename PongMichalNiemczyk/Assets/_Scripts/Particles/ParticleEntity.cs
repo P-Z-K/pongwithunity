@@ -4,17 +4,12 @@ using Zenject;
 namespace _Scripts.Particles
 {
     public class ParticleEntity<T> : MonoBehaviour, IParticleEntity
-    where T : IMemoryPool
+        where T : IMemoryPool
     {
         [SerializeField] private ParticleSystem _particleSystem;
 
         private T _pool;
 
-        [Inject]
-        public void Construct(T pool)
-        {
-            _pool = pool;
-        }
         public Vector3 Position
         {
             get => transform.position;
@@ -38,9 +33,12 @@ namespace _Scripts.Particles
             set => gameObject.SetActive(value);
         }
 
-        public bool IsPlaying
+        public bool IsPlaying => _particleSystem.isPlaying;
+
+        [Inject]
+        public void Construct(T pool)
         {
-            get => _particleSystem.isPlaying;
+            _pool = pool;
         }
     }
 }

@@ -7,25 +7,22 @@ namespace _Scripts.Root
 {
     public class StartState : State<Root>
     {
-        private readonly StartMenuController _startMenuController;
         private readonly SignalBus _signalBus;
-        public StartState(Root owner, StartMenuController startMenuController, SignalBus signalBus) 
+
+        public StartState(Root owner, SignalBus signalBus)
             : base(owner)
         {
-            _startMenuController = startMenuController;
             _signalBus = signalBus;
         }
 
         public override void EnterState()
         {
-            Debug.Log("<color=red>[ROOT STATE]</color> Entering Start state");
             SubscribeSignals();
-            _startMenuController.Show();
         }
 
         private void SubscribeSignals()
         {
-            _signalBus.Subscribe<StartButtonClickedSignal>(TEST_LoadGameplayState);
+            _signalBus.Subscribe<StartButtonClickedSignal>(LoadGameplayState);
             _signalBus.Subscribe<QuitButtonClickedSignal>(QuitGame);
         }
 
@@ -45,14 +42,12 @@ namespace _Scripts.Root
 
         public override void ExitState()
         {
-            Debug.Log("<color=red>[ROOT STATE]</color> Exiting Start state");
-            _startMenuController.Hide();
             UnsubscribeSignals();
         }
-        
+
         private void UnsubscribeSignals()
         {
-            _signalBus.Unsubscribe<StartButtonClickedSignal>(TEST_LoadGameplayState);
+            _signalBus.Unsubscribe<StartButtonClickedSignal>(LoadGameplayState);
             _signalBus.Unsubscribe<QuitButtonClickedSignal>(QuitGame);
         }
 
@@ -60,13 +55,13 @@ namespace _Scripts.Root
         {
             if (Input.GetButtonDown("Jump"))
             {
-                TEST_LoadGameplayState();
+                LoadGameplayState();
             }
         }
 
-        private void TEST_LoadGameplayState()
+        private void LoadGameplayState()
         {
-            _owner.ChangeStateTo<GameplayState>();
+            _owner.CreateNewState<GameplayStateFactory>();
         }
     }
 }

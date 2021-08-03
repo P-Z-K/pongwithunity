@@ -1,6 +1,4 @@
 using _Scripts.Players;
-using _Scripts.Root;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.UI
@@ -16,15 +14,9 @@ namespace _Scripts.UI
             _signalBus = signalBus;
         }
 
-        public void SubscribeSignals()
-        {
-            _signalBus.Subscribe<PlayerPointsChangedSignal>(OnPlayerPointsChange);
-        }
-        
-        public void UnsubscribeSignals()
-        {
-            _signalBus.Unsubscribe<PlayerPointsChangedSignal>(OnPlayerPointsChange);
-        }
+        public void SubscribeSignals() => _signalBus.Subscribe<PlayerPointsChangedSignal>(OnPlayerPointsChange);
+
+        public void UnsubscribeSignals() => _signalBus.Unsubscribe<PlayerPointsChangedSignal>(OnPlayerPointsChange);
 
         private void OnPlayerPointsChange(PlayerPointsChangedSignal obj)
         {
@@ -32,15 +24,9 @@ namespace _Scripts.UI
             _gameplayMenuView.UpdatePlayerTwoScoreText(obj.PlayerTwoPoints);
         }
 
-        public void Show()
-        {
-            _gameplayMenuView.Show();
-        }
+        public void Show() => _gameplayMenuView.Show();
 
 
-        public void Hide()
-        {
-            _gameplayMenuView.Hide();
-        }
+        public void Hide() => _gameplayMenuView.Hide();
     }
 }

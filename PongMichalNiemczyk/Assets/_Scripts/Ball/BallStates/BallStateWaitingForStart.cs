@@ -17,7 +17,6 @@ namespace _Scripts.Ball
 
         public override void EnterState()
         {
-            Debug.Log("<color=lime>[BALL STATE]</color> Ball is waiting...");
             PrepareBall();
         }
 
