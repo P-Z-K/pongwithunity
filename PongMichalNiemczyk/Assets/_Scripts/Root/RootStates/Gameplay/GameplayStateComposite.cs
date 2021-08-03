@@ -22,28 +22,40 @@ namespace _Scripts.Root
         {
             _gameplayState.EnterState();
 
-            foreach (IComponent child in _children) child.Enter();
+            foreach (IComponent child in _children)
+            {
+                child.Enter();
+            }
         }
 
         public override void Tick()
         {
             _gameplayState.Tick();
 
-            foreach (IComponent child in _children) child.Tick();
+            foreach (IComponent child in _children)
+            {
+                child.Tick();
+            }
         }
 
         public override void FixedTick()
         {
             _gameplayState.FixedTick();
 
-            foreach (IComponent child in _children) child.FixedTick();
+            foreach (IComponent child in _children)
+            {
+                child.FixedTick();
+            }
         }
 
         public override void Exit()
         {
             _gameplayState.ExitState();
 
-            foreach (IComponent child in _children) child.Exit();
+            foreach (IComponent child in _children)
+            {
+                child.Exit();
+            }
         }
     }
 }

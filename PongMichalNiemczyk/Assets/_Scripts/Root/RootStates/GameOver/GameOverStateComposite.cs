@@ -3,14 +3,15 @@ using _Scripts.Composite;
 
 namespace _Scripts.Root
 {
-    public class StartStateComposite : CompositeComponent
+    public class GameOverStateComposite : CompositeComponent
     {
         private readonly List<IComponent> _children = new List<IComponent>();
-        private readonly StartState _startState;
+        private readonly GameOverState _gameOverState;
 
-        public StartStateComposite(StartState startState)
+
+        public GameOverStateComposite(GameOverState gameOverState)
         {
-            _startState = startState;
+            _gameOverState = gameOverState;
         }
 
         public override void AddChild(IComponent child)
@@ -20,17 +21,15 @@ namespace _Scripts.Root
 
         public override void Enter()
         {
-            _startState.EnterState();
+            _gameOverState.EnterState();
 
             foreach (IComponent child in _children)
-            {
                 child.Enter();
-            }
         }
 
         public override void Tick()
         {
-            _startState.Tick();
+            _gameOverState.Tick();
 
             foreach (IComponent child in _children)
             {
@@ -40,7 +39,7 @@ namespace _Scripts.Root
 
         public override void FixedTick()
         {
-            _startState.FixedTick();
+            _gameOverState.FixedTick();
 
             foreach (IComponent child in _children)
             {
@@ -50,7 +49,7 @@ namespace _Scripts.Root
 
         public override void Exit()
         {
-            _startState.ExitState();
+            _gameOverState.ExitState();
 
             foreach (IComponent child in _children)
             {

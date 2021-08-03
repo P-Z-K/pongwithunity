@@ -10,6 +10,7 @@ namespace _Scripts.Root
     {
         private readonly GameOverMenuController _gameOverMenuController;
         private readonly SignalBus _signalBus;
+
         public GameOverState(Root owner, GameOverMenuController gameOverMenuController, SignalBus signalBus)
             : base(owner)
         {
@@ -23,13 +24,13 @@ namespace _Scripts.Root
             SubscribeSignals();
             _gameOverMenuController.Show();
         }
-        
+
         private void SubscribeSignals()
         {
             _signalBus.Subscribe<PlayAgainButtonClickedSignal>(TEST_LoadGameplayState);
             _signalBus.Subscribe<QuitButtonClickedSignal>(QuitGame);
         }
-        
+
         private void TEST_LoadGameplayState()
         {
             _owner.ChangeStateTo<GameplayState>();
@@ -55,7 +56,7 @@ namespace _Scripts.Root
             _gameOverMenuController.Hide();
             UnsubscribeSignals();
         }
-        
+
         private void UnsubscribeSignals()
         {
             _signalBus.Unsubscribe<PlayAgainButtonClickedSignal>(TEST_LoadGameplayState);
