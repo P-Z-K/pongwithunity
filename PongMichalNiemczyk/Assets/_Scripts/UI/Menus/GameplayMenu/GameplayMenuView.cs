@@ -17,5 +17,16 @@ namespace _Scripts.UI
         {
             _playerTwoScoreText.text = points.ToString();
         }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+        
+        
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
