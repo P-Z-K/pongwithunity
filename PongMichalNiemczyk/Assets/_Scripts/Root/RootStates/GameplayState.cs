@@ -17,25 +17,30 @@ namespace _Scripts.Root
         private readonly IBallFacade _ballFacade;
         private readonly SoundEntityManager _soundEntityManager;
         private readonly ParticleEntityManager _particleEntityManager;
-        
-        private readonly PointsTracker _pointsTracker;
-        private readonly SignalBus _signalBus;
 
-        public GameplayState(Root owner, SoundEntityManager soundEntityManager,
-            IBallFacade ballFacade, ParticleEntityManager particleEntityManager, MenuManager menuManager,
-            UI_PointsTracker uiPointsTracker, PointsTracker pointsTracker, SignalBus signalBus)
+        private readonly SignalBus _signalBus;
+        private readonly PointsTracker _pointsTracker;
+        private readonly GameplayMenuController _gameplayMenuController;
+
+        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler,
+            IBallFacade ballFacade, ParticleEntityManager particleEntityManager,
+            PointsTracker pointsTracker, GameplayMenuController gameplayMenuController, SignalBus signalBus)
             : base(owner)
         {
             _soundEntityManager = soundEntityManager;
             _ballFacade = ballFacade;
             _particleEntityManager = particleEntityManager;
             _pointsTracker = pointsTracker;
+            _gameplayMenuController = gameplayMenuController;
             _signalBus = signalBus;
         }
 
         public override void EnterState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Entering Gameplay state");
+            SubscribeSignals();
+            _gameplayMenuController.Show();
+            _gameplayMenuController.SubscribeSignals();
             
             _particleEntityManager.SubscribeSignals();
             _soundEntityManager.SubscribeSignals();
@@ -43,6 +48,11 @@ namespace _Scripts.Root
             _pointsTracker.ResetPoints();
 
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();
+        }
+
+        private void SubscribeSignals()
+        {
+            _signalBus.Subscribe<PlayerWonSignal>(TEST_LoadGameOverState);
         }
         
         public override void Tick()
@@ -72,11 +82,17 @@ namespace _Scripts.Root
         public override void ExitState()
         {
             Debug.Log("<color=red>[ROOT STATE]</color> Exiting Gameplay state");
+            
+            _gameplayMenuController.Hide();
+            _gameplayMenuController.UnsubscribeSignals();
 
             _particleEntityManager.UnsubscribeSignals();
-            _soundEntityManager.UnsubscribeSignals();
-            _uiPointsTracker.UnsubscribeSignals();
             UnsubscribeSignals();
+        }
+        
+        private void UnsubscribeSignals()
+        {
+            _signalBus.Unsubscribe<PlayerWonSignal>(TEST_LoadGameOverState);
         }
         
         private void TEST_HandleUserInput()
