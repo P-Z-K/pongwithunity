@@ -22,7 +22,7 @@ namespace _Scripts.Root
         private readonly PointsTracker _pointsTracker;
         private readonly GameplayMenuController _gameplayMenuController;
 
-        public GameplayState(Root owner, SoundEntityPooler soundEntityPooler,
+        public GameplayState(Root owner, SoundEntityManager soundEntityManager,
             IBallFacade ballFacade, ParticleEntityManager particleEntityManager,
             PointsTracker pointsTracker, GameplayMenuController gameplayMenuController, SignalBus signalBus)
             : base(owner)
@@ -44,7 +44,6 @@ namespace _Scripts.Root
             
             _particleEntityManager.SubscribeSignals();
             _soundEntityManager.SubscribeSignals();
-            _uiPointsTracker.SubscribeSignals();
             _pointsTracker.ResetPoints();
 
             _ballFacade.ChangeStateTo<BallStateWaitingForStart>();

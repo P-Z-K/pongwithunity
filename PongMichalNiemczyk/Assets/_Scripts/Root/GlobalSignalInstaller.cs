@@ -1,5 +1,5 @@
 using _Scripts.Ball;
-using _Scripts.Root.Global_Signals;
+using _Scripts.Players;
 using _Scripts.UI.Signals;
 using Zenject;
 
