@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
-    public class GameplayMenuView : MonoBehaviour, IGameplayMenuView
+    public class GameplayMenuView : MonoBehaviour
     {
         [SerializeField] private Text _playerOneScoreText;
         [SerializeField] private Text _playerTwoScoreText;
@@ -22,8 +22,8 @@ namespace _Scripts.UI
         {
             gameObject.SetActive(true);
         }
-        
-        
+
+
         public void Hide()
         {
             gameObject.SetActive(false);
