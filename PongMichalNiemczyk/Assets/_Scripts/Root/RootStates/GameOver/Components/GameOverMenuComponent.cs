@@ -1,7 +1,7 @@
 using _Scripts.Composite;
 using _Scripts.UI;
 
-namespace _Scripts.Root.Components
+namespace _Scripts.Root
 {
     public class GameOverMenuComponent : PrimitiveComponent
     {
