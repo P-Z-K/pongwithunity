@@ -4,13 +4,12 @@ using Zenject;
 
 namespace _Scripts.UI
 {
-    public class GameOverMenuController : MonoBehaviour, IGameOverMenuViewInputListener
+    public class GameOverMenuController : IGameOverMenuViewInputListener
     {
-        private GameOverMenuView _gameOverMenuView;
-        private SignalBus _signalBus;
+        private readonly GameOverMenuView _gameOverMenuView;
+        private readonly SignalBus _signalBus;
 
-        [Inject]
-        public void Construct(GameOverMenuView gameOverMenuView, SignalBus signalBus)
+        public GameOverMenuController(GameOverMenuView gameOverMenuView, SignalBus signalBus)
         {
             _gameOverMenuView = gameOverMenuView;
             _signalBus = signalBus;
@@ -20,7 +19,6 @@ namespace _Scripts.UI
         {
             _gameOverMenuView.Show();
         }
-
 
         public void Hide()
         {

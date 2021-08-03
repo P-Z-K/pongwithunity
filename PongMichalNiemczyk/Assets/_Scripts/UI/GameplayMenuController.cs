@@ -4,13 +4,12 @@ using Zenject;
 
 namespace _Scripts.UI
 {
-    public class GameplayMenuController : MonoBehaviour
+    public class GameplayMenuController
     {
-        private GameplayMenuView _gameplayMenuView;
-        private SignalBus _signalBus;
+        private readonly GameplayMenuView _gameplayMenuView;
+        private readonly SignalBus _signalBus;
 
-        [Inject]
-        public void Construct(GameplayMenuView gameplayMenuView, SignalBus signalBus)
+        public GameplayMenuController(GameplayMenuView gameplayMenuView, SignalBus signalBus)
         {
             _gameplayMenuView = gameplayMenuView;
             _signalBus = signalBus;

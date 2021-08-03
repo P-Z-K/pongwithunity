@@ -23,7 +23,6 @@ namespace _Scripts.UI
             gameObject.SetActive(true);
         }
 
-
         public void Hide()
         {
             gameObject.SetActive(false);

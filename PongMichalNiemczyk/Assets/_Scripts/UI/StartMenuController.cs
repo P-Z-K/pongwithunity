@@ -4,13 +4,12 @@ using Zenject;
 
 namespace _Scripts.UI
 {
-    public class StartMenuController : MonoBehaviour, IStartMenuViewInputListener
+    public class StartMenuController : IStartMenuViewInputListener
     {
-        private StartMenuView _startMenuView;
-        private SignalBus _signalBus;
+        private readonly StartMenuView _startMenuView;
+        private readonly SignalBus _signalBus;
 
-        [Inject]
-        public void Construct(StartMenuView startMenuView, SignalBus signalBus)
+        public StartMenuController(StartMenuView startMenuView, SignalBus signalBus)
         {
             _startMenuView = startMenuView;
             _signalBus = signalBus;

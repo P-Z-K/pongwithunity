@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 5644297562343834939}
   - component: {fileID: 5644297562343834937}
   - component: {fileID: 797040581695893412}
+  - component: {fileID: 1309453279}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -450,10 +451,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _components:
   - {fileID: 5644297562343834937}
+  - {fileID: 1309453279}
   _identifier: 
   _useSceneContext: 1
   _context: {fileID: 0}
-  _bindType: 2
+  _bindType: 0
+--- !u!114 &1309453279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644297562343834933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf4189422b84c099035253d8ab066b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5644297562471414490
 GameObject:
   m_ObjectHideFlags: 0
