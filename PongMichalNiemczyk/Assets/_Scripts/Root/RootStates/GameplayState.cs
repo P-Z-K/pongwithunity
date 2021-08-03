@@ -85,6 +85,7 @@ namespace _Scripts.Root
             _gameplayMenuController.Hide();
             _gameplayMenuController.UnsubscribeSignals();
 
+            _soundEntityManager.UnsubscribeSignals();
             _particleEntityManager.UnsubscribeSignals();
             UnsubscribeSignals();
         }
