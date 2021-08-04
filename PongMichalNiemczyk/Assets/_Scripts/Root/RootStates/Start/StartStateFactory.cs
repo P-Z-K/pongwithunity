@@ -16,7 +16,7 @@ namespace _Scripts.Root
         {
             var state = _diContainer.Instantiate<StartStateComposite>();
 
-            state.AddChild(_diContainer.Resolve<StartMenuComponent>());
+            state.AddChild(_diContainer.Instantiate<StartMenuComponent>());
 
             return state;
         }

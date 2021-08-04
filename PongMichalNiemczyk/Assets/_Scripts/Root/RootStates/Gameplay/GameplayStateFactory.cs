@@ -16,12 +16,12 @@ namespace _Scripts.Root
         {
             var state = _diContainer.Instantiate<GameplayStateComposite>();
 
-            state.AddChild(_diContainer.Resolve<GameplayMenuComponent>());
-            state.AddChild(_diContainer.Resolve<ParticleEntityManagerComponent>());
-            state.AddChild(_diContainer.Resolve<SoundEntityManagerComponent>());
-            state.AddChild(_diContainer.Resolve<BallComponent>());
-            state.AddChild(_diContainer.Resolve<PointsTrackerComponent>());
-            state.AddChild(_diContainer.Resolve<PongBatComponent>());
+            state.AddChild(_diContainer.Instantiate<GameplayMenuComponent>());
+            state.AddChild(_diContainer.Instantiate<ParticleEntityManagerComponent>());
+            state.AddChild(_diContainer.Instantiate<SoundEntityManagerComponent>());
+            state.AddChild(_diContainer.Instantiate<BallComponent>());
+            state.AddChild(_diContainer.Instantiate<PointsTrackerComponent>());
+            state.AddChild(_diContainer.Instantiate<PongBatComponent>());
 
             return state;
         }

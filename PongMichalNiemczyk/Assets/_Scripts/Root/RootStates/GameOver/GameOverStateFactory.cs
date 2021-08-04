@@ -16,7 +16,7 @@ namespace _Scripts.Root
         {
             var state = _diContainer.Instantiate<GameOverStateComposite>();
 
-            state.AddChild(_diContainer.Resolve<GameOverMenuComponent>());
+            state.AddChild(_diContainer.Instantiate<GameOverMenuComponent>());
 
             return state;
         }
