@@ -12,5 +12,7 @@ namespace _Scripts.Ball
         [Range(0.1f, 1f)] public float _randomDirectionBounceFactor;
         [Range(0.1f, 11f)] public float _maximumStartHorizontalDirection;
         [Range(0.1f, 5f)] public float _maximumStartVerticalDirection;
+        
+        [Range(0, 5)] public int _delayBetweenBallStates;
     }
 }

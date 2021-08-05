@@ -9,17 +9,22 @@ namespace _Scripts.Ball
         private readonly BallMovement _ballMovement;
         private readonly BallView _ballView;
         private readonly SignalBus _signalBus;
+        private readonly BallSettings _ballSettings;
+
+        private float _elapsedTime = 0f;
 
         public BallStateInPlayerHole(
             BallStateManager owner
             , BallMovement ballMovement
             , BallView ballView
-            , SignalBus signalBus)
+            , SignalBus signalBus
+            , BallSettings ballSettings)
             : base(owner)
         {
             _ballMovement = ballMovement;
             _ballView = ballView;
             _signalBus = signalBus;
+            _ballSettings = ballSettings;
         }
 
         public override void EnterState()
@@ -36,6 +41,17 @@ namespace _Scripts.Ball
 
         public override void Tick()
         {
+            DelayStateChange();
+        }
+
+        private void DelayStateChange()
+        {
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime >= _ballSettings._delayBetweenBallStates)
+            {
+                _elapsedTime = 0f;
+                _owner.ChangeStateTo<BallStateWaitingForStart>();
+            }
         }
 
         public override void FixedTick()

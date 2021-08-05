@@ -17,6 +17,7 @@ namespace _Scripts.Root
             Container.DeclareSignal<StartButtonClickedSignal>();
             Container.DeclareSignal<QuitButtonClickedSignal>();
             Container.DeclareSignal<PlayAgainButtonClickedSignal>();
+            Container.DeclareSignal<CountdownAnimationFinishedSignal>();
         }
     }
 }
