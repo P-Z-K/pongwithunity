@@ -1,22 +1,25 @@
+using _Scripts.Composite;
 using _Scripts.UI.Signals;
 using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Root
 {
-    public class GameOverState : State<Root>
+    public class GameOverStateComposite : CompositeComponent
     {
         private readonly SignalBus _signalBus;
+        private readonly Root _root;
 
-        public GameOverState(Root owner, SignalBus signalBus)
-            : base(owner)
+        public GameOverStateComposite(SignalBus signalBus, Root root)
         {
             _signalBus = signalBus;
+            _root = root;
         }
 
-        public override void EnterState()
+        public override void Enter()
         {
             SubscribeSignals();
+            base.Enter();
         }
 
         private void SubscribeSignals()
@@ -27,7 +30,7 @@ namespace _Scripts.Root
 
         private void LoadGameplayState()
         {
-            _owner.CreateNewState<GameplayStateFactory>();
+            _root.CreateNewState<GameplayStateFactory>();
         }
 
         private void QuitGame()
@@ -35,16 +38,9 @@ namespace _Scripts.Root
             Debug.Log("Quit game");
         }
 
-        public override void Tick()
+        public override void Exit()
         {
-        }
-
-        public override void FixedTick()
-        {
-        }
-
-        public override void ExitState()
-        {
+            base.Exit();
             UnsubscribeSignals();
         }
 

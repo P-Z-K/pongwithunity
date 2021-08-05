@@ -8,10 +8,6 @@ namespace _Scripts.Root
         {
             Container.BindInterfacesAndSelfTo<Root>().AsSingle();
 
-            Container.Bind<StartState>().AsSingle();
-            Container.Bind<GameplayState>().AsSingle();
-            Container.Bind<GameOverState>().AsSingle();
-
             SignalBusInstaller.Install(Container);
         }
     }

@@ -1,23 +1,25 @@
-using _Scripts.UI;
+using _Scripts.Composite;
 using _Scripts.UI.Signals;
 using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Root
 {
-    public class StartState : State<Root>
+    public class StartStateComposite : CompositeComponent
     {
+        private readonly Root _root;
         private readonly SignalBus _signalBus;
 
-        public StartState(Root owner, SignalBus signalBus)
-            : base(owner)
+        public StartStateComposite(SignalBus signalBus, Root root)
         {
             _signalBus = signalBus;
+            _root = root;
         }
 
-        public override void EnterState()
+        public override void Enter()
         {
             SubscribeSignals();
+            base.Enter();
         }
 
         private void SubscribeSignals()
@@ -26,22 +28,19 @@ namespace _Scripts.Root
             _signalBus.Subscribe<QuitButtonClickedSignal>(QuitGame);
         }
 
+        private void LoadGameplayState()
+        {
+            _root.CreateNewState<GameplayStateFactory>();
+        }
+
         private void QuitGame()
         {
             Debug.Log("Quit game");
         }
 
-        public override void Tick()
+        public override void Exit()
         {
-            TEST_HandleUserInput();
-        }
-
-        public override void FixedTick()
-        {
-        }
-
-        public override void ExitState()
-        {
+            base.Exit();
             UnsubscribeSignals();
         }
 
@@ -49,19 +48,6 @@ namespace _Scripts.Root
         {
             _signalBus.Unsubscribe<StartButtonClickedSignal>(LoadGameplayState);
             _signalBus.Unsubscribe<QuitButtonClickedSignal>(QuitGame);
-        }
-
-        private void TEST_HandleUserInput()
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                LoadGameplayState();
-            }
-        }
-
-        private void LoadGameplayState()
-        {
-            _owner.CreateNewState<GameplayStateFactory>();
         }
     }
 }
