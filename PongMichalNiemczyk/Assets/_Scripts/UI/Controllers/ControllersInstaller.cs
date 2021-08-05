@@ -7,8 +7,11 @@ namespace _Scripts.UI
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<StartMenuController>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameplayMenuController>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverMenuController>().AsSingle();
+            
+            Container.Bind<GameplayMenuController>().AsSingle();
+            Container.Bind<CountdownTimerController>().AsSingle();
+            Container.Bind<PlayerPointsController>().AsSingle();
         }
     }
 }
