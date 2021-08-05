@@ -3,12 +3,12 @@ using Zenject;
 
 namespace _Scripts.UI
 {
-    public class GameplayMenuController
+    public class PlayerPointsController
     {
         private readonly GameplayMenuView _gameplayMenuView;
         private readonly SignalBus _signalBus;
 
-        public GameplayMenuController(GameplayMenuView gameplayMenuView, SignalBus signalBus)
+        public PlayerPointsController(GameplayMenuView gameplayMenuView, SignalBus signalBus)
         {
             _gameplayMenuView = gameplayMenuView;
             _signalBus = signalBus;
@@ -23,10 +23,5 @@ namespace _Scripts.UI
             _gameplayMenuView.UpdatePlayerOneScoreText(obj.PlayerOnePoints);
             _gameplayMenuView.UpdatePlayerTwoScoreText(obj.PlayerTwoPoints);
         }
-
-        public void Show() => _gameplayMenuView.Show();
-
-
-        public void Hide() => _gameplayMenuView.Hide();
     }
 }
