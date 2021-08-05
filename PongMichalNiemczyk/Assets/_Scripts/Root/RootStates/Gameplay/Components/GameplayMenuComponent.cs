@@ -14,14 +14,12 @@ namespace _Scripts.Root
 
         public override void Enter()
         {
-            _gameplayMenuController.SubscribeSignals();
             _gameplayMenuController.Show();
         }
 
         public override void Exit()
         {
             _gameplayMenuController.Hide();
-            _gameplayMenuController.UnsubscribeSignals();
         }
     }
 }

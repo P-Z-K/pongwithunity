@@ -17,6 +17,7 @@ namespace _Scripts.Root
             var state = _diContainer.Instantiate<GameplayStateComposite>();
 
             state.AddChild(_diContainer.Instantiate<GameplayMenuComponent>());
+            state.AddChild(_diContainer.Instantiate<PlayerPointsComponent>());
             state.AddChild(_diContainer.Instantiate<ParticleEntityManagerComponent>());
             state.AddChild(_diContainer.Instantiate<SoundEntityManagerComponent>());
             state.AddChild(_diContainer.Instantiate<BallComponent>());
