@@ -5,7 +5,6 @@ namespace _Scripts.Root
 {
     public class GameplayStateComposite : CompositeComponent
     {
-        private readonly List<IComponent> _children = new List<IComponent>();
         private readonly GameplayState _gameplayState;
 
         public GameplayStateComposite(GameplayState gameplayState)
@@ -13,49 +12,32 @@ namespace _Scripts.Root
             _gameplayState = gameplayState;
         }
 
-        public override void AddChild(IComponent child)
-        {
-            _children.Add(child);
-        }
-
         public override void Enter()
         {
             _gameplayState.EnterState();
 
-            foreach (IComponent child in _children)
-            {
-                child.Enter();
-            }
+            base.Enter();
         }
 
         public override void Tick()
         {
             _gameplayState.Tick();
 
-            foreach (IComponent child in _children)
-            {
-                child.Tick();
-            }
+            base.Tick();
         }
 
         public override void FixedTick()
         {
             _gameplayState.FixedTick();
 
-            foreach (IComponent child in _children)
-            {
-                child.FixedTick();
-            }
+            base.FixedTick();
         }
 
         public override void Exit()
         {
+            base.Exit();
+            
             _gameplayState.ExitState();
-
-            foreach (IComponent child in _children)
-            {
-                child.Exit();
-            }
         }
     }
 }

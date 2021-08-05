@@ -5,7 +5,6 @@ namespace _Scripts.Root
 {
     public class StartStateComposite : CompositeComponent
     {
-        private readonly List<IComponent> _children = new List<IComponent>();
         private readonly StartState _startState;
 
         public StartStateComposite(StartState startState)
@@ -13,49 +12,32 @@ namespace _Scripts.Root
             _startState = startState;
         }
 
-        public override void AddChild(IComponent child)
-        {
-            _children.Add(child);
-        }
-
         public override void Enter()
         {
             _startState.EnterState();
 
-            foreach (IComponent child in _children)
-            {
-                child.Enter();
-            }
+            base.Enter();
         }
 
         public override void Tick()
         {
             _startState.Tick();
 
-            foreach (IComponent child in _children)
-            {
-                child.Tick();
-            }
+            base.Tick();
         }
 
         public override void FixedTick()
         {
             _startState.FixedTick();
 
-            foreach (IComponent child in _children)
-            {
-                child.FixedTick();
-            }
+            base.FixedTick();
         }
 
         public override void Exit()
         {
-            _startState.ExitState();
+            base.Exit();
 
-            foreach (IComponent child in _children)
-            {
-                child.Exit();
-            }
+            _startState.ExitState();
         }
     }
 }
